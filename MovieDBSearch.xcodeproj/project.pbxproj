@@ -97,7 +97,10 @@
 		40C8ED252111C72F00A3F2E2 /* MovieDBSearch */ = {
 			isa = PBXGroup;
 			children = (
-				40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */,
+				40C8ED5F2111C86F00A3F2E2 /* Extensions */,
+				40C8ED5E2111C86900A3F2E2 /* Protocols */,
+				40C8ED5D2111C82B00A3F2E2 /* Application */,
+				40C8ED542111C7CB00A3F2E2 /* Features */,
 				40C8ED282111C72F00A3F2E2 /* ViewController.swift */,
 				40C8ED2A2111C72F00A3F2E2 /* Main.storyboard */,
 				40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */,
@@ -123,6 +126,99 @@
 				40C8ED482111C73200A3F2E2 /* Info.plist */,
 			);
 			path = MovieDBSearchUITests;
+			sourceTree = "<group>";
+		};
+		40C8ED542111C7CB00A3F2E2 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				40C8ED552111C7D200A3F2E2 /* Search */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		40C8ED552111C7D200A3F2E2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				40C8ED5C2111C81700A3F2E2 /* Configurators */,
+				40C8ED5B2111C7FA00A3F2E2 /* Coordinators */,
+				40C8ED5A2111C7F400A3F2E2 /* Models */,
+				40C8ED562111C7D800A3F2E2 /* Services */,
+				40C8ED592111C7EB00A3F2E2 /* UI */,
+				40C8ED572111C7DE00A3F2E2 /* ViewControllers */,
+				40C8ED582111C7E400A3F2E2 /* Views */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		40C8ED562111C7D800A3F2E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		40C8ED572111C7DE00A3F2E2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		40C8ED582111C7E400A3F2E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40C8ED592111C7EB00A3F2E2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		40C8ED5A2111C7F400A3F2E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40C8ED5B2111C7FA00A3F2E2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		40C8ED5C2111C81700A3F2E2 /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configurators;
+			sourceTree = "<group>";
+		};
+		40C8ED5D2111C82B00A3F2E2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		40C8ED5E2111C86900A3F2E2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		40C8ED5F2111C86F00A3F2E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
 				INFOPLIST_FILE = MovieDBSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kreativelab.co.MovieDBSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
 				INFOPLIST_FILE = MovieDBSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kreativelab.co.MovieDBSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
