@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4039F5C9211375C900C71043 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C5211375C900C71043 /* RxSwift.framework */; };
+		4039F5CA211375C900C71043 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C6211375C900C71043 /* Swinject.framework */; };
+		4039F5CB211375C900C71043 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C7211375C900C71043 /* RxCocoa.framework */; };
+		4039F5CC211375C900C71043 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */; };
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED282111C72F00A3F2E2 /* ViewController.swift */; };
 		40C8ED2C2111C72F00A3F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2A2111C72F00A3F2E2 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4039F5C5211375C900C71043 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		4039F5C6211375C900C71043 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = SOURCE_ROOT; };
+		4039F5C7211375C900C71043 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
+		4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
 		40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C8ED282111C72F00A3F2E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4039F5CB211375C900C71043 /* RxCocoa.framework in Frameworks */,
+				4039F5C9211375C900C71043 /* RxSwift.framework in Frameworks */,
+				4039F5CC211375C900C71043 /* DZNEmptyDataSet.framework in Frameworks */,
+				4039F5CA211375C900C71043 /* Swinject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4039F5C42113757A00C71043 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */,
+				4039F5C7211375C900C71043 /* RxCocoa.framework */,
+				4039F5C5211375C900C71043 /* RxSwift.framework */,
+				4039F5C6211375C900C71043 /* Swinject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		40C8ED1A2111C72F00A3F2E2 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +134,7 @@
 		40C8ED252111C72F00A3F2E2 /* MovieDBSearch */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5C42113757A00C71043 /* Frameworks */,
 				40C8ED622111D8B600A3F2E2 /* Network */,
 				40C8ED5F2111C86F00A3F2E2 /* Extensions */,
 				40C8ED5E2111C86900A3F2E2 /* Protocols */,
@@ -268,6 +292,7 @@
 				40C8ED1F2111C72F00A3F2E2 /* Sources */,
 				40C8ED202111C72F00A3F2E2 /* Frameworks */,
 				40C8ED212111C72F00A3F2E2 /* Resources */,
+				4039F5CD2113760B00C71043 /* Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,6 +408,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4039F5CD2113760B00C71043 /* Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+			);
+			name = "Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40C8ED1F2111C72F00A3F2E2 /* Sources */ = {
@@ -572,6 +618,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieDBSearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -591,6 +641,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieDBSearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
