@@ -11,9 +11,19 @@
 		4039F5CA211375C900C71043 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C6211375C900C71043 /* Swinject.framework */; };
 		4039F5CB211375C900C71043 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C7211375C900C71043 /* RxCocoa.framework */; };
 		4039F5CC211375C900C71043 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */; };
+		4039F5D12113773100C71043 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5D02113773100C71043 /* GradientButton.swift */; };
+		4039F5D32113774A00C71043 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5D22113774A00C71043 /* UIColor+Hex.swift */; };
+		4039F5D62113779100C71043 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5D52113779100C71043 /* Theme.swift */; };
+		4039F5D821138D1A00C71043 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5D721138D1A00C71043 /* BaseView.swift */; };
+		4039F5DA21138D3E00C71043 /* XibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5D921138D3E00C71043 /* XibInitializable.swift */; };
+		4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5DB21138D7900C71043 /* SearchViewController.swift */; };
+		4039F5DE21138DA900C71043 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5DD21138DA900C71043 /* SearchView.swift */; };
+		4039F5E021138DC900C71043 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4039F5DF21138DC900C71043 /* SearchView.xib */; };
+		4039F5E4211390EB00C71043 /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5E3211390EB00C71043 /* SearchViewControllerTests.swift */; };
+		4039F5E62113924800C71043 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5E52113924800C71043 /* AppCoordinator.swift */; };
+		4039F5E82113997200C71043 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5E72113997200C71043 /* CustomTextField.swift */; };
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED282111C72F00A3F2E2 /* ViewController.swift */; };
-		40C8ED2C2111C72F00A3F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2A2111C72F00A3F2E2 /* Main.storyboard */; };
 		40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */; };
 		40C8ED312111C73200A3F2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2F2111C73200A3F2E2 /* LaunchScreen.storyboard */; };
 		40C8ED3C2111C73200A3F2E2 /* MovieDBSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */; };
@@ -49,10 +59,20 @@
 		4039F5C6211375C900C71043 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = SOURCE_ROOT; };
 		4039F5C7211375C900C71043 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
+		4039F5D02113773100C71043 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		4039F5D22113774A00C71043 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		4039F5D52113779100C71043 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		4039F5D721138D1A00C71043 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		4039F5D921138D3E00C71043 /* XibInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibInitializable.swift; sourceTree = "<group>"; };
+		4039F5DB21138D7900C71043 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4039F5DD21138DA900C71043 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4039F5DF21138DC900C71043 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		4039F5E3211390EB00C71043 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
+		4039F5E52113924800C71043 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4039F5E72113997200C71043 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C8ED282111C72F00A3F2E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		40C8ED2B2111C72F00A3F2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C8ED302111C73200A3F2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C8ED322111C73200A3F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +131,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4039F5CE2113771100C71043 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5CF2113771800C71043 /* Views */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4039F5CF2113771800C71043 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5D02113773100C71043 /* GradientButton.swift */,
+				4039F5D721138D1A00C71043 /* BaseView.swift */,
+				4039F5E72113997200C71043 /* CustomTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4039F5D42113778100C71043 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5D52113779100C71043 /* Theme.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4039F5E1211390CC00C71043 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5E2211390D500C71043 /* ViewControllers */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		4039F5E2211390D500C71043 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4039F5E3211390EB00C71043 /* SearchViewControllerTests.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		40C8ED1A2111C72F00A3F2E2 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +196,8 @@
 		40C8ED252111C72F00A3F2E2 /* MovieDBSearch */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5D42113778100C71043 /* Utils */,
+				4039F5CE2113771100C71043 /* Base */,
 				4039F5C42113757A00C71043 /* Frameworks */,
 				40C8ED622111D8B600A3F2E2 /* Network */,
 				40C8ED5F2111C86F00A3F2E2 /* Extensions */,
@@ -141,7 +205,6 @@
 				40C8ED5D2111C82B00A3F2E2 /* Application */,
 				40C8ED542111C7CB00A3F2E2 /* Features */,
 				40C8ED282111C72F00A3F2E2 /* ViewController.swift */,
-				40C8ED2A2111C72F00A3F2E2 /* Main.storyboard */,
 				40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */,
 				40C8ED2F2111C73200A3F2E2 /* LaunchScreen.storyboard */,
 				40C8ED322111C73200A3F2E2 /* Info.plist */,
@@ -152,6 +215,7 @@
 		40C8ED3A2111C73200A3F2E2 /* MovieDBSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5E1211390CC00C71043 /* Feature */,
 				40C8ED632111D8C700A3F2E2 /* Network */,
 				40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */,
 				40C8ED3D2111C73200A3F2E2 /* Info.plist */,
@@ -200,6 +264,7 @@
 		40C8ED572111C7DE00A3F2E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5DB21138D7900C71043 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +272,7 @@
 		40C8ED582111C7E400A3F2E2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5DD21138DA900C71043 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +280,7 @@
 		40C8ED592111C7EB00A3F2E2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5DF21138DC900C71043 /* SearchView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -243,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */,
+				4039F5E52113924800C71043 /* AppCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -250,6 +318,7 @@
 		40C8ED5E2111C86900A3F2E2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4039F5D921138D3E00C71043 /* XibInitializable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -258,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				40C8ED602111CE9C00A3F2E2 /* UIView+Constraints.swift */,
+				4039F5D22113774A00C71043 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,9 +457,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4039F5E021138DC900C71043 /* SearchView.xib in Resources */,
 				40C8ED312111C73200A3F2E2 /* LaunchScreen.storyboard in Resources */,
 				40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */,
-				40C8ED2C2111C72F00A3F2E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,12 +505,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4039F5D62113779100C71043 /* Theme.swift in Sources */,
+				4039F5D12113773100C71043 /* GradientButton.swift in Sources */,
+				4039F5DA21138D3E00C71043 /* XibInitializable.swift in Sources */,
+				4039F5D32113774A00C71043 /* UIColor+Hex.swift in Sources */,
 				40C8ED692111D97800A3F2E2 /* RequestParams.swift in Sources */,
 				40C8ED6D2111DA7900A3F2E2 /* Request.swift in Sources */,
+				4039F5E62113924800C71043 /* AppCoordinator.swift in Sources */,
+				4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */,
 				40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */,
+				4039F5DE21138DA900C71043 /* SearchView.swift in Sources */,
 				40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */,
+				4039F5D821138D1A00C71043 /* BaseView.swift in Sources */,
 				40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */,
 				40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */,
+				4039F5E82113997200C71043 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C8ED672111D8ED00A3F2E2 /* HTTPMethodTests.swift in Sources */,
+				4039F5E4211390EB00C71043 /* SearchViewControllerTests.swift in Sources */,
 				40C8ED6F2111DA9B00A3F2E2 /* RequestTests.swift in Sources */,
 				40C8ED3C2111C73200A3F2E2 /* MovieDBSearchTests.swift in Sources */,
 				40C8ED6B2111D98600A3F2E2 /* RequestParamsTests.swift in Sources */,
@@ -479,14 +559,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		40C8ED2A2111C72F00A3F2E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				40C8ED2B2111C72F00A3F2E2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		40C8ED2F2111C73200A3F2E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
