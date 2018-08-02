@@ -28,4 +28,13 @@ class SearchViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.title, expectedTitle)
     }
     
+    func testSutViewPropertiesAreNotNil() {
+        XCTAssertNotNil(sut.searchTextField)
+        XCTAssertNotNil(sut.collectionView)
+    }
+    
+    func testSutCollectionViewSetDataSource() {
+        XCTAssertTrue(sut.collectionView?.dataSource is MovieDataProvider)
+    }
+    
 }

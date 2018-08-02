@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="MovieDBSearch" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="7kL-nV-WqW" id="jCq-7D-4OJ"/>
                 <outlet property="searchTextField" destination="Nhn-Xc-6bV" id="JQr-sg-BQF"/>
                 <outlet property="searchTextFieldTrailingConstraint" destination="EHn-9L-fF4" id="vIQ-Ve-kAd"/>
                 <outlet property="topSearchButton" destination="e3X-2e-UNv" id="93F-gZ-FwK"/>
@@ -30,7 +31,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="search"/>
                 </textField>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7kL-nV-WqW">
                     <rect key="frame" x="16" y="144" width="343" height="507"/>

@@ -13,6 +13,7 @@ class SearchView: BaseView, XibInitializable {
     @IBOutlet private(set) weak var topSearchButton: GradientButton!
     @IBOutlet private(set) weak var searchTextField: CustomTextField!
     @IBOutlet private(set) weak var searchTextFieldTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private(set) weak var collectionView: UICollectionView!
     
     override func initializeView() { setupXib() }
     
@@ -20,19 +21,24 @@ class SearchView: BaseView, XibInitializable {
         hideTopSearchButton()
     }
     
-    private func showTopSearchButton() {
-        searchTextFieldTrailingConstraint.constant = 110
+    func showTopSearchButton() {
+        searchTextFieldTrailingConstraint.constant = 116
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
             self.topSearchButton.transform = CGAffineTransform.identity
             self.layoutIfNeeded()
         }, completion: nil)
     }
     
-    private func hideTopSearchButton() {
+    func hideTopSearchButton() {
         searchTextFieldTrailingConstraint.constant = 16
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            self.topSearchButton.transform = CGAffineTransform(scaleX: 0, y: 0)
-            self.layoutIfNeeded()
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseIn,
+                       animations: {
+                        self.topSearchButton.transform = CGAffineTransform(scaleX: 0, y: 0)
+                        self.layoutIfNeeded()
         }, completion: nil)
     }
     
