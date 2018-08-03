@@ -18,11 +18,14 @@ final class APIClient: Dispatcher {
         self.session = session
     }
     
-    func execute(request: Request, completion: @escaping (BackendResponse<Data>)->()) {
+    func execute(request: Request, completion: @escaping (BackendResponse<Data?>)->()) {
         session.dataTask(with: self.prepareURLRequest(for: request)) { (data, response, error) in
-            // Create either a .success or .failure case of a result enum
-            let result = data.map(BackendResponse.success) ?? .failure(error as! ResponseError)
-            completion(result)
+            if (error == nil) {
+                completion(.success(data))
+            }
+            else {
+                completion(.failure(ResponseError.noInternetConnection))
+            }
         }.resume()
     }
     

@@ -10,6 +10,8 @@ import Foundation
 
 enum ResponseError: Error {
     case noInternetConnection
+    case dataCouldNotBeProcessed
+    case noAPIKeyProvided
 }
 
 

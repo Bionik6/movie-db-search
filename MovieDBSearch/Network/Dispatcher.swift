@@ -15,6 +15,6 @@ protocol Dispatcher: AnyObject {
     
     init(session: SessionProtocol)
     
-    func execute(request: Request, completion: @escaping (BackendResponse<Data>)->())
+    func execute(request: Request, completion: @escaping (BackendResponse<Data?>)->())
     
 }

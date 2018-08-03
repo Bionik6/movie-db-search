@@ -15,10 +15,12 @@ final class SearchViewController: UIViewController {
     private(set) lazy var searchView = SearchView(frame: UIScreen.main.bounds)
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var collectionView = searchView.collectionView
-    
-    
+        
     private let disposeBag = DisposeBag()
-    private let dataProvider = MovieDataProvider()
+    private lazy var dataProvider: MovieDataProvider = {
+        let provider = mainAssembler?.resolver.resolve(MovieDataProvider.self)
+        return provider!
+    }()
     
     // MARK:- View Controller Lifecycle
     override func loadView() {
@@ -30,11 +32,9 @@ final class SearchViewController: UIViewController {
         setupView()
         setupRXObservers()
         setupCollectionView()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        collectionView?.endEditing(true)
+        dataProvider.fetchMovies(for: "dsfd") { response in
+            
+        }
     }
     
 }

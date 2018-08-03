@@ -8,6 +8,8 @@
 
 import UIKit
 
+var mainAssembler: MainAssembler?
+
 final class AppCoordinator {
     
     private let window: UIWindow
@@ -22,6 +24,7 @@ final class AppCoordinator {
         setupRootViewController()
         window.rootViewController = navigationController
         Theme.applyDefaultAppearance()
+        mainAssembler = MainAssembler()
     }
     
     private func setupRootViewController() {

@@ -22,7 +22,7 @@ class DispatcherMock: Dispatcher {
         self.session = URLSessionMock()
     }
     
-    func execute(request: Request, completion: @escaping (BackendResponse<Data>) -> ()) {
+    func execute(request: Request, completion: @escaping (BackendResponse<Data?>) -> ()) {
         completion(BackendResponse.success(data))
     }
     

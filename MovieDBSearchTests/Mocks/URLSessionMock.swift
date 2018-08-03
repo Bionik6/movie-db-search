@@ -27,9 +27,10 @@ final class URLSessionMock: SessionProtocol {
     
     var isDataTaskCalled = false
     var data: Data?
-    var error: Error?
+    var error: ResponseError?
     
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void) -> URLSessionDataTask {
+        isDataTaskCalled = true
         let data = self.data
         let error = self.error
         return URLSessionDataTaskMock { completionHandler(data, nil, error) }
