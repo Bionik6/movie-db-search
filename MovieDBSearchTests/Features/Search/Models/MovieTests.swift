@@ -15,7 +15,14 @@ class MovieTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = Movie(name: "Avengers", posterURL: "url", releaseDate: "2018-01-01", overview: "movie overview")
+    }
+    
+    func testSutProperties() {
+        XCTAssertEqual(sut.name, "Avengers")
+        XCTAssertEqual(sut.posterURL, "url")
+        XCTAssertEqual(sut.releaseDate, "2018-01-01")
+        XCTAssertEqual(sut.overview, "movie overview")
     }
     
 }
