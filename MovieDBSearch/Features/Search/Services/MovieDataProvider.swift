@@ -13,11 +13,11 @@ import Swinject
 final class MovieDataProviderAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(MovieDataProvider.self, factory: { _ in
-            let session = URLSession(configuration: .default)
-            let client = APIClient(session: session)
-            return MovieDataProvider(client: client)
-        }).inObjectScope(.container)
+//        container.register(MovieDataProvider.self, factory: { _ in
+//            let session = URLSession(configuration: .default)
+//            let client = APIClient(session: session)
+//            return MovieDataProvider(client: client)
+//        }).inObjectScope(.container)
     }
 }
 
@@ -25,28 +25,27 @@ final class MovieDataProviderAssembly: Assembly {
 
 final class MovieDataProvider: NSObject, UICollectionViewDataSource {
     
-    private let client: Dispatcher
-    
-    init(client: Dispatcher) {
-        self.client = client
-    }
-    
+    private var movies: [Movie] = []
     var didFinishFetchingData: ()->() = {  }
     
-    func fetchMovies(for searchTerms: String, completion: @escaping (BackendResponse<Data?>)->()) {
-        let request = SearchRequest(searchTerms: searchTerms)
-        client.execute(request: request) { response in
-            switch response {
-            case .success(let data):
-                let json = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                print(json)
-            case .failure(let error): print(error)
+    var searchTerms: String = "" {
+        didSet {
+            factory.fetchMovies(for: searchTerms) { response in
+                print(response)
+                self.didFinishFetchingData()
             }
         }
     }
     
+    private lazy var factory: SearchFactory = {
+        let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
+        let parser = mainAssembler?.resolver.resolve(Parser.self)!
+        return SearchFactory(client: client!, parser: parser!)
+    }()
+
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

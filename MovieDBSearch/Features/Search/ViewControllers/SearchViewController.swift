@@ -18,8 +18,8 @@ final class SearchViewController: UIViewController {
         
     private let disposeBag = DisposeBag()
     private lazy var dataProvider: MovieDataProvider = {
-        let provider = mainAssembler?.resolver.resolve(MovieDataProvider.self)
-        return provider!
+        let provider = MovieDataProvider.init()
+        return provider
     }()
     
     // MARK:- View Controller Lifecycle
@@ -32,9 +32,6 @@ final class SearchViewController: UIViewController {
         setupView()
         setupRXObservers()
         setupCollectionView()
-        dataProvider.fetchMovies(for: "dsfd") { response in
-            
-        }
     }
     
 }
@@ -47,11 +44,15 @@ extension SearchViewController {
     
     fileprivate func setupCollectionView() {
         collectionView?.dataSource = dataProvider
+        dataProvider.didFinishFetchingData = { self.collectionView?.reloadData() }
     }
     
     fileprivate func setupRXObservers() {
         searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
             text.count > 0 ? self.searchView.showTopSearchButton() : self.searchView.hideTopSearchButton()
+        }).disposed(by: disposeBag)
+        searchTextField?.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: { _ in
+            self.dataProvider.searchTerms = (self.searchTextField?.text!)!
         }).disposed(by: disposeBag)
     }
     
