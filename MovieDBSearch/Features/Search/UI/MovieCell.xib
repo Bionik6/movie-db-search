@@ -13,15 +13,63 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCell" customModule="MovieDBSearch" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="281" height="348"/>
+            <rect key="frame" x="0.0" y="0.0" width="281" height="130"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="281" height="348"/>
+                <rect key="frame" x="0.0" y="0.0" width="281" height="130"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qbi-bY-J7u">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="UZ4-Sz-lai"/>
+                            <constraint firstAttribute="width" constant="80" id="m1F-fX-1xU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spider-Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMo-CL-zSj">
+                        <rect key="frame" x="88" y="4" width="193" height="25"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: Jan 01, 2002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIV-Hh-f8h">
+                        <rect key="frame" x="88" y="29" width="193" height="19.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rf-C0-aRT">
+                        <rect key="frame" x="88" y="50" width="193" height="57.5"/>
+                        <string key="text">After being bitten by a genetically 
+altered spider, nerdy high school…</string>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="XMo-CL-zSj" firstAttribute="leading" secondItem="Qbi-bY-J7u" secondAttribute="trailing" constant="8" id="0qj-Nt-uqq"/>
+                <constraint firstItem="Qbi-bY-J7u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Aix-hz-zRY"/>
+                <constraint firstItem="yIV-Hh-f8h" firstAttribute="top" secondItem="XMo-CL-zSj" secondAttribute="bottom" id="BmK-uz-9JH"/>
+                <constraint firstAttribute="trailing" secondItem="XMo-CL-zSj" secondAttribute="trailing" id="Xxh-AU-VdZ"/>
+                <constraint firstItem="XMo-CL-zSj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="cjE-qw-Ac3"/>
+                <constraint firstAttribute="trailing" secondItem="7rf-C0-aRT" secondAttribute="trailing" id="cqW-0y-pxq"/>
+                <constraint firstItem="7rf-C0-aRT" firstAttribute="leading" secondItem="yIV-Hh-f8h" secondAttribute="leading" id="cuR-le-Mgz"/>
+                <constraint firstItem="Qbi-bY-J7u" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kfG-Ft-AaS"/>
+                <constraint firstItem="7rf-C0-aRT" firstAttribute="top" secondItem="yIV-Hh-f8h" secondAttribute="bottom" constant="1.5" id="lXF-iV-Iue"/>
+                <constraint firstItem="yIV-Hh-f8h" firstAttribute="leading" secondItem="XMo-CL-zSj" secondAttribute="leading" id="s6f-fX-jCm"/>
+                <constraint firstAttribute="trailing" secondItem="yIV-Hh-f8h" secondAttribute="trailing" id="vX0-qq-rgC"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="281" height="348"/>
-            <point key="canvasLocation" x="140.5" y="201"/>
+            <size key="customSize" width="281" height="130"/>
+            <connections>
+                <outlet property="imageView" destination="Qbi-bY-J7u" id="Bv3-9B-9Gy"/>
+                <outlet property="overviewLabel" destination="7rf-C0-aRT" id="FEG-IZ-WRS"/>
+                <outlet property="releaseDateLabel" destination="yIV-Hh-f8h" id="qa3-al-rSx"/>
+                <outlet property="titleLabel" destination="XMo-CL-zSj" id="khL-Nk-FuB"/>
+            </connections>
+            <point key="canvasLocation" x="140.5" y="92"/>
         </collectionViewCell>
     </objects>
 </document>

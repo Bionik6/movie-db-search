@@ -10,12 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+let cellIdentifier = "Cell"
+
 final class SearchViewController: UIViewController {
     
     private(set) lazy var searchView = SearchView(frame: UIScreen.main.bounds)
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var collectionView = searchView.collectionView
-        
+    
     private let disposeBag = DisposeBag()
     private lazy var dataProvider: MovieDataProvider = {
         let provider = MovieDataProvider.init()
@@ -44,7 +46,13 @@ extension SearchViewController {
     
     fileprivate func setupCollectionView() {
         collectionView?.dataSource = dataProvider
-        dataProvider.didFinishFetchingData = { self.collectionView?.reloadData() }
+        collectionView?.delegate = self
+        collectionView?.backgroundColor = .clear
+        let nibCell = UINib(nibName: "MovieCell", bundle: nil)
+        collectionView?.register(nibCell, forCellWithReuseIdentifier: cellIdentifier)
+        dataProvider.didFinishFetchingData = {
+            self.collectionView!.reloadData()
+        }
     }
     
     fileprivate func setupRXObservers() {
@@ -57,6 +65,3 @@ extension SearchViewController {
     }
     
 }
-
-
-

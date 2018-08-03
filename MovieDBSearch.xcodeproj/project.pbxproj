@@ -44,6 +44,7 @@
 		404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA32114B37400C25B13 /* SearchFactory.swift */; };
 		404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA52114D20300C25B13 /* MovieCell.swift */; };
 		404EBBA82114D20300C25B13 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404EBBA62114D20300C25B13 /* MovieCell.xib */; };
+		404EBBAA2114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		40AF181E211408880002C411 /* SearchRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF181D211408880002C411 /* SearchRequestTests.swift */; };
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		404EBBA32114B37400C25B13 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
 		404EBBA52114D20300C25B13 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		404EBBA62114D20300C25B13 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		40AF181D211408880002C411 /* SearchRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestTests.swift; sourceTree = "<group>"; };
 		40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5DB21138D7900C71043 /* SearchViewController.swift */,
+				404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */,
 				4039F5F62113C37300C71043 /* MainAssembler.swift in Sources */,
 				404EBBA121149F2300C25B13 /* SearchAssembly.swift in Sources */,
+				404EBBAA2114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				4039F5DE21138DA900C71043 /* SearchView.swift in Sources */,
 				40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */,
 				4039F5D821138D1A00C71043 /* BaseView.swift in Sources */,

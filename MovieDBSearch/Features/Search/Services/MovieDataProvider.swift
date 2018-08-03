@@ -32,7 +32,12 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
         didSet {
             factory.fetchMovies(for: searchTerms) { response in
                 print(response)
-                self.didFinishFetchingData()
+                switch response {
+                case .success(let movies):
+                    self.movies = movies
+                    self.didFinishFetchingData()
+                        default: break
+                }
             }
         }
     }
@@ -49,6 +54,11 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell.init()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MovieCell
+        let movie = movies[indexPath.item]
+        cell.overviewLabel.text = movie.overview
+        cell.titleLabel.text = movie.name
+        cell.releaseDateLabel.text = movie.releaseDate
+        return cell
     }
 }
