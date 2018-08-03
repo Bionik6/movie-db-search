@@ -1,3 +1,5 @@
 github "ReactiveX/RxSwift" ~> 4.0
 github "dzenbot/DZNEmptyDataSet"
 github "Swinject/Swinject"
+github "kean/Nuke" ~> 7.0
+github "kishikawakatsumi/KeychainAccess"

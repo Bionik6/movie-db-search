@@ -32,6 +32,9 @@
 		4039F5F92113C3D500C71043 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5F82113C3D500C71043 /* RequestMock.swift */; };
 		4039F5FC2113C59800C71043 /* DispatcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5FB2113C59800C71043 /* DispatcherMock.swift */; };
 		4039F5FE2113C5F900C71043 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F5FD2113C5F900C71043 /* URLSessionMock.swift */; };
+		4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6012113DD6F00C71043 /* SessionProtocol.swift */; };
+		4039F6042113EF0C00C71043 /* KeychainPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6032113EF0C00C71043 /* KeychainPreferences.swift */; };
+		4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6052113EFA000C71043 /* APIKeyFetcher.swift */; };
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED282111C72F00A3F2E2 /* ViewController.swift */; };
 		40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */; };
@@ -90,6 +93,9 @@
 		4039F5F82113C3D500C71043 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		4039F5FB2113C59800C71043 /* DispatcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherMock.swift; sourceTree = "<group>"; };
 		4039F5FD2113C5F900C71043 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		4039F6012113DD6F00C71043 /* SessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
+		4039F6032113EF0C00C71043 /* KeychainPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPreferences.swift; sourceTree = "<group>"; };
+		4039F6052113EFA000C71043 /* APIKeyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyFetcher.swift; sourceTree = "<group>"; };
 		40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C8ED282111C72F00A3F2E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5D52113779100C71043 /* Theme.swift */,
+				4039F6032113EF0C00C71043 /* KeychainPreferences.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -360,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5D921138D3E00C71043 /* XibInitializable.swift */,
+				4039F6012113DD6F00C71043 /* SessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				4039F5EB2113BC8900C71043 /* Dispatcher.swift */,
 				4039F5ED2113BCCC00C71043 /* BackendResponse.swift */,
 				4039F5F32113BDFA00C71043 /* APIClient.swift */,
+				4039F6052113EFA000C71043 /* APIKeyFetcher.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -536,6 +545,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 			);
 			name = "Carthage Frameworks";
 			outputPaths = (
@@ -562,12 +573,15 @@
 				40C8ED6D2111DA7900A3F2E2 /* Request.swift in Sources */,
 				4039F5E62113924800C71043 /* AppCoordinator.swift in Sources */,
 				4039F5EA2113A70600C71043 /* MovieDataProvider.swift in Sources */,
+				4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */,
 				4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */,
+				4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */,
 				40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */,
 				4039F5F62113C37300C71043 /* MainAssembler.swift in Sources */,
 				4039F5DE21138DA900C71043 /* SearchView.swift in Sources */,
 				40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */,
 				4039F5D821138D1A00C71043 /* BaseView.swift in Sources */,
+				4039F6042113EF0C00C71043 /* KeychainPreferences.swift in Sources */,
 				40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */,
 				40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */,
 				4039F5E82113997200C71043 /* CustomTextField.swift in Sources */,
