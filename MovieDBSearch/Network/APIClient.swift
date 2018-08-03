@@ -12,19 +12,13 @@ import Foundation
 final class APIClient: Dispatcher {
     
     var session: SessionProtocol
-    var baseURL: NSString = "http://api.themoviedb.org/3/search/movie"
-    private var apiKey: String? { return KeychainPreferences.shared.API_KEY }
+    var baseURL: NSString = "http://api.themoviedb.org/3/"
     
     required init(session: SessionProtocol) {
         self.session = session
     }
     
     func execute(request: Request, completion: @escaping (BackendResponse<Data>)->()) {
-        guard let apiKey = apiKey else {
-            let keyFetcher = APIKeyFetcher(request: request)
-            keyFetcher.fetchKey()
-            return
-        }
         session.dataTask(with: self.prepareURLRequest(for: request)) { (data, response, error) in
             // Create either a .success or .failure case of a result enum
             let result = data.map(BackendResponse.success) ?? .failure(error as! ResponseError)
@@ -38,7 +32,6 @@ final class APIClient: Dispatcher {
 extension APIClient {
     
     fileprivate func prepareURLRequest(for request: Request) -> URLRequest {
-        guard let apiKey = self.apiKey else { fatalError("Need API Key") }
         let fullURLString = baseURL.appendingPathComponent(request.path)
         guard let url = URL(string: fullURLString) else { fatalError("The URL is not valid") }
         var urlRequest = URLRequest(url: url)

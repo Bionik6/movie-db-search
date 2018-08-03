@@ -35,6 +35,9 @@
 		4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6012113DD6F00C71043 /* SessionProtocol.swift */; };
 		4039F6042113EF0C00C71043 /* KeychainPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6032113EF0C00C71043 /* KeychainPreferences.swift */; };
 		4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6052113EFA000C71043 /* APIKeyFetcher.swift */; };
+		4039F6082113F92A00C71043 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6072113F92A00C71043 /* SearchRequest.swift */; };
+		4039F60C2114005100C71043 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4039F60B2114005100C71043 /* APIKey.plist */; };
+		4039F60E2114022500C71043 /* APIKeyFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */; };
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED292111C72F00A3F2E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED282111C72F00A3F2E2 /* ViewController.swift */; };
 		40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		4039F6012113DD6F00C71043 /* SessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
 		4039F6032113EF0C00C71043 /* KeychainPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPreferences.swift; sourceTree = "<group>"; };
 		4039F6052113EFA000C71043 /* APIKeyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyFetcher.swift; sourceTree = "<group>"; };
+		4039F6072113F92A00C71043 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		4039F60B2114005100C71043 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
+		4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyFetcherTests.swift; sourceTree = "<group>"; };
 		40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C8ED282111C72F00A3F2E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +224,23 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		4039F6092114000A00C71043 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4039F60A2114001B00C71043 /* Plists */,
+				40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4039F60A2114001B00C71043 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				4039F60B2114005100C71043 /* APIKey.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
 		40C8ED1A2111C72F00A3F2E2 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +264,7 @@
 		40C8ED252111C72F00A3F2E2 /* MovieDBSearch */ = {
 			isa = PBXGroup;
 			children = (
+				4039F6092114000A00C71043 /* Resources */,
 				4039F5D42113778100C71043 /* Utils */,
 				4039F5CE2113771100C71043 /* Base */,
 				4039F5C42113757A00C71043 /* Frameworks */,
@@ -250,7 +274,6 @@
 				40C8ED5D2111C82B00A3F2E2 /* Application */,
 				40C8ED542111C7CB00A3F2E2 /* Features */,
 				40C8ED282111C72F00A3F2E2 /* ViewController.swift */,
-				40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */,
 				40C8ED2F2111C73200A3F2E2 /* LaunchScreen.storyboard */,
 				40C8ED322111C73200A3F2E2 /* Info.plist */,
 			);
@@ -391,6 +414,7 @@
 				4039F5ED2113BCCC00C71043 /* BackendResponse.swift */,
 				4039F5F32113BDFA00C71043 /* APIClient.swift */,
 				4039F6052113EFA000C71043 /* APIKeyFetcher.swift */,
+				4039F6072113F92A00C71043 /* SearchRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -403,6 +427,7 @@
 				40C8ED6E2111DA9B00A3F2E2 /* RequestTests.swift */,
 				4039F5EF2113BD2E00C71043 /* BackendResponseTests.swift */,
 				4039F5F12113BD6700C71043 /* DispatcherTests.swift */,
+				4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -513,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4039F5E021138DC900C71043 /* SearchView.xib in Resources */,
+				4039F60C2114005100C71043 /* APIKey.plist in Resources */,
 				40C8ED312111C73200A3F2E2 /* LaunchScreen.storyboard in Resources */,
 				40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */,
 			);
@@ -575,6 +601,7 @@
 				4039F5EA2113A70600C71043 /* MovieDataProvider.swift in Sources */,
 				4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */,
 				4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */,
+				4039F6082113F92A00C71043 /* SearchRequest.swift in Sources */,
 				4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */,
 				40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */,
 				4039F5F62113C37300C71043 /* MainAssembler.swift in Sources */,
@@ -592,6 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4039F60E2114022500C71043 /* APIKeyFetcherTests.swift in Sources */,
 				4039F5FE2113C5F900C71043 /* URLSessionMock.swift in Sources */,
 				40C8ED672111D8ED00A3F2E2 /* HTTPMethodTests.swift in Sources */,
 				4039F5E4211390EB00C71043 /* SearchViewControllerTests.swift in Sources */,

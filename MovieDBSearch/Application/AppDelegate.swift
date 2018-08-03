@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         coordinator.start()
+        
+        
+        let request = SearchRequest(searchTerms: "spiderman")
+        APIClient(session: URLSession.init()).execute(request: request) { response in
+            
+        }
+        
+        
         return true
     }
 
