@@ -13,16 +13,9 @@ class RequestTests: XCTestCase {
     
     var sut: Request?
     
-    class FakeRequest: Request {
-        var path: String = "/users"
-        var method: HTTPMethod = .get
-        var params: RequestParams? = RequestParams.url(["page": 2, "items": 50])
-        var headers: [String: String]? = ["Authorization": "Bearer tokenhere"]
-    }
-    
     override func setUp() {
         super.setUp()
-        sut = FakeRequest()
+        sut = RequestMock()
     }
     
     func testSutHasAPath() {

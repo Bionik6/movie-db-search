@@ -21,6 +21,7 @@ final class AppCoordinator {
     func start() {
         setupRootViewController()
         window.rootViewController = navigationController
+        Theme.applyDefaultAppearance()
     }
     
     private func setupRootViewController() {
