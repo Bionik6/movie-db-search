@@ -21,8 +21,8 @@ final class SearchAssembly: Assembly {
 extension SearchAssembly {
     
     fileprivate func registerParser(container: Container) {
-        container.register(Parser.self, factory: { resolver in
-            return JSONParser()
+        container.register(MovieParser.self, factory: { resolver in
+            return MovieJSONParser()
         })
     }
     

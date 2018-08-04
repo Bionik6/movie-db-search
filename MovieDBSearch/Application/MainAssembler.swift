@@ -16,7 +16,6 @@ final class MainAssembler {
     
     init() {
         assembler.apply(assemblies: [
-            MovieDataProviderAssembly(),
             SearchAssembly()
             ])
     }

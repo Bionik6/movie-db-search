@@ -9,7 +9,7 @@
 import SwiftyJSON
 
 
-final class JSONParser: Parser {
+final class MovieJSONParser: MovieParser {
    
     func parse(data: Data) -> [Movie] {
         guard let jsonData = try? JSON(data: data) else { fatalError("Could not create json with the data provided") }

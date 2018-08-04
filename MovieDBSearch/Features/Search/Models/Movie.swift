@@ -21,11 +21,4 @@ struct Movie {
 }
 
 
-extension Movie {
-    init(json: JSON) {
-        self.name = json["title"].stringValue
-        self.posterURL = json["poster_path"].stringValue
-        self.releaseDate = json["release_date"].stringValue
-        self.overview = json["overview"].stringValue
-    }
-}
+ 

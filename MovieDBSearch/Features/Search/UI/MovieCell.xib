@@ -19,27 +19,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="281" height="130"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qbi-bY-J7u">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Qbi-bY-J7u">
+                        <rect key="frame" x="1" y="0.0" width="80" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="UZ4-Sz-lai"/>
                             <constraint firstAttribute="width" constant="80" id="m1F-fX-1xU"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spider-Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMo-CL-zSj">
-                        <rect key="frame" x="88" y="4" width="193" height="25"/>
+                        <rect key="frame" x="89" y="4" width="192" height="25"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: Jan 01, 2002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIV-Hh-f8h">
-                        <rect key="frame" x="88" y="29" width="193" height="19.5"/>
+                        <rect key="frame" x="89" y="29" width="192" height="19.5"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rf-C0-aRT">
-                        <rect key="frame" x="88" y="50" width="193" height="57.5"/>
+                        <rect key="frame" x="89" y="50" width="192" height="57.5"/>
                         <string key="text">After being bitten by a genetically 
 altered spider, nerdy high school…</string>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -50,7 +55,7 @@ altered spider, nerdy high school…</string>
             </view>
             <constraints>
                 <constraint firstItem="XMo-CL-zSj" firstAttribute="leading" secondItem="Qbi-bY-J7u" secondAttribute="trailing" constant="8" id="0qj-Nt-uqq"/>
-                <constraint firstItem="Qbi-bY-J7u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Aix-hz-zRY"/>
+                <constraint firstItem="Qbi-bY-J7u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="Aix-hz-zRY"/>
                 <constraint firstItem="yIV-Hh-f8h" firstAttribute="top" secondItem="XMo-CL-zSj" secondAttribute="bottom" id="BmK-uz-9JH"/>
                 <constraint firstAttribute="trailing" secondItem="XMo-CL-zSj" secondAttribute="trailing" id="Xxh-AU-VdZ"/>
                 <constraint firstItem="XMo-CL-zSj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="cjE-qw-Ac3"/>
@@ -72,4 +77,7 @@ altered spider, nerdy high school…</string>
             <point key="canvasLocation" x="140.5" y="92"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="poster_placeholder" width="116" height="150"/>
+    </resources>
 </document>

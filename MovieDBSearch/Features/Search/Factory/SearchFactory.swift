@@ -10,16 +10,16 @@ import Foundation
 
 final class SearchFactory {
     
-    fileprivate let parser: Parser
+    fileprivate let parser: MovieParser
     fileprivate let client: Dispatcher
     
-    init(client: Dispatcher, parser: Parser) {
+    init(client: Dispatcher, parser: MovieParser) {
         self.parser = parser
         self.client = client
     }
     
-    func fetchMovies(for searchTerms: String, completion: @escaping (BackendResponse<[Movie]>)->()) {
-        let request = SearchRequest(searchTerms: searchTerms)
+    func fetchMovies(for searchTerms: String, page: Int, completion: @escaping (BackendResponse<[Movie]>)->()) {
+        let request = SearchRequest(searchTerms: searchTerms, page: page)
         client.execute(request: request) { response in
             switch response {
             case .success(let data):

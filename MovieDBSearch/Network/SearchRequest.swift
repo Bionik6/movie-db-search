@@ -10,6 +10,9 @@ import Foundation
 
 class SearchRequest: Request {
     
+    private var currentPage: Int
+    private let searchTerms: String
+    
     private var apiKey: String? {
         let keyFetcher = APIKeyFetcher()
         return keyFetcher.fetchKey()
@@ -17,14 +20,13 @@ class SearchRequest: Request {
     
     var path: String = "search/movie"
     var method: HTTPMethod = .get
-    var params: RequestParams? { return .url(["api_key": apiKey ?? "", "query": searchTerms, "page": 1]) }
-    
+    var params: RequestParams? { return .url(["api_key": apiKey ?? "", "query": searchTerms, "page": currentPage]) }
     var headers: [String : String]? = nil
     
-    private let searchTerms: String
     
-    init(searchTerms: String) {
+    init(searchTerms: String, page: Int) {
         self.searchTerms = searchTerms
+        self.currentPage = page
     }
     
 }

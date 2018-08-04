@@ -8,6 +8,12 @@
 
 import Foundation
 
-protocol Parser {
+protocol MovieParser {
     func parse(data: Data) -> [Movie]
+}
+
+protocol Parser {
+    associatedtype T
+    
+    func parse(data: Data) -> T
 }

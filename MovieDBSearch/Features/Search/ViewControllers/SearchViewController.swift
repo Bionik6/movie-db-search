@@ -18,6 +18,9 @@ final class SearchViewController: UIViewController {
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var collectionView = searchView.collectionView
     
+    let itemsPerRow: Int = 1
+    let sectionInsets = UIEdgeInsetsMake(0, 8, 0, 8)
+    
     private let disposeBag = DisposeBag()
     private lazy var dataProvider: MovieDataProvider = {
         let provider = MovieDataProvider.init()
@@ -61,6 +64,9 @@ extension SearchViewController {
         }).disposed(by: disposeBag)
         searchTextField?.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: { _ in
             self.dataProvider.searchTerms = (self.searchTextField?.text!)!
+        }).disposed(by: disposeBag)
+        searchView.bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.becomeFirstResponder()
         }).disposed(by: disposeBag)
     }
     
