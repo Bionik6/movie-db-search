@@ -28,8 +28,11 @@ class DefaultQueryPersistence: QueryPersistence {
     func saveQuery(keyword: String) {
         let query = Query(keyword: keyword)
         if var queries = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Query] {
-            queries.append(query)
-            NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
+            let keywords = queries.compactMap { $0.keyword }
+            if !keywords.contains(keyword) {
+                queries.append(query)
+                NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
+            }
         } else {
             NSKeyedArchiver.archiveRootObject([query], toFile: jsonURL.path)
         }
