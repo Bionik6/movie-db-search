@@ -10,8 +10,8 @@ import UIKit
 
 extension MovieDataProvider: UICollectionViewDelegateFlowLayout  {
     
-    var itemsPerRow: Int { return 1 }
-    var sectionInsets: UIEdgeInsets { return UIEdgeInsetsMake(0, 8, 0, 8) }
+    private var itemsPerRow: Int { return 1 }
+    private var sectionInsets: UIEdgeInsets { return UIEdgeInsetsMake(0, 8, 0, 8) }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)

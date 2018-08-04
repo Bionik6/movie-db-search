@@ -64,6 +64,7 @@
 		40E483B42115BCEA00A8659B /* MovieLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40E483B22115BCEA00A8659B /* MovieLoadingCell.xib */; };
 		40E483B62115BD9500A8659B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B52115BD9500A8659B /* GradientView.swift */; };
 		40E483B82115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */; };
+		40E483BA2115D23900A8659B /* MovieDataProvider+CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B92115D23900A8659B /* MovieDataProvider+CollectionViewDataSource.swift */; };
 		40ECA864211486DE00164ADD /* MovieDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */; };
 		40ECA8672114971A00164ADD /* MovieParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8662114971A00164ADD /* MovieParser.swift */; };
 		40ECA8692114973C00164ADD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8682114973C00164ADD /* Movie.swift */; };
@@ -153,6 +154,7 @@
 		40E483B22115BCEA00A8659B /* MovieLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieLoadingCell.xib; sourceTree = "<group>"; };
 		40E483B52115BD9500A8659B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDataProvider+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		40E483B92115D23900A8659B /* MovieDataProvider+CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDataProvider+CollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProviderTests.swift; sourceTree = "<group>"; };
 		40ECA8662114971A00164ADD /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		40ECA8682114973C00164ADD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5E92113A70600C71043 /* MovieDataProvider.swift */,
+				40E483B92115D23900A8659B /* MovieDataProvider+CollectionViewDataSource.swift */,
 				40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */,
 			);
 			path = Services;
@@ -712,6 +715,7 @@
 				4039F5E62113924800C71043 /* AppCoordinator.swift in Sources */,
 				4039F5EA2113A70600C71043 /* MovieDataProvider.swift in Sources */,
 				40E483B82115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift in Sources */,
+				40E483BA2115D23900A8659B /* MovieDataProvider+CollectionViewDataSource.swift in Sources */,
 				4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */,
 				4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */,
 				404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */,

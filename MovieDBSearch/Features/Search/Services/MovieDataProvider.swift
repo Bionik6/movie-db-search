@@ -10,14 +10,15 @@ import UIKit
 import Swinject
 
 
-final class MovieDataProvider: NSObject, UICollectionViewDataSource {
+final class MovieDataProvider: NSObject {
     
     var isSearching = false
-    private var movies: [Movie] = []
+    var movies: [Movie] = []
     var didFinishFetchingData: ()->() = {  }
-    private var currentPage = 1
     var shouldShowLoadingCell = false
+    
     private var searchTerms = ""
+    private var currentPage = 1
     
     private lazy var factory: SearchFactory = {
         let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
@@ -25,7 +26,7 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
         return SearchFactory(client: client!, parser: parser!)
     }()
     
-    func fetchMovies() {
+    func fetchMoviesForSearchTerms() {
         factory.fetchMovies(for: searchTerms, page: currentPage) { response in
             switch response {
             case .success(let page):
@@ -37,23 +38,6 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
         }
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shouldShowLoadingCell ? movies.count + 1 : movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if isLoadingIndexPath(indexPath) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieLoadingCellIdentifier, for: indexPath) as! MovieLoadingCell
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCellIdentifier, for: indexPath) as! MovieCell
-            let presenter = MoviePresenter(movie: movies[indexPath.item])
-            presenter.configure(cell: cell)
-            return cell
-        }
-    }
-    
     func isLoadingIndexPath(_ indexPath: IndexPath) -> Bool {
         guard shouldShowLoadingCell else { return false }
         return indexPath.item == self.movies.count
@@ -61,7 +45,7 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
     
     func fetchNextPage() {
         currentPage += 1
-        fetchMovies()
+        fetchMoviesForSearchTerms()
     }
     
     func makeSearch(for keywords: String) {
@@ -69,6 +53,6 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
         currentPage = 1
         movies = []
         searchTerms = keywords
-        fetchMovies()
+        fetchMoviesForSearchTerms()
     }
 }
