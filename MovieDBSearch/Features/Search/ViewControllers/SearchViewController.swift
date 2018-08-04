@@ -23,7 +23,7 @@ final class SearchViewController: UIViewController {
     fileprivate var isSearching = false
     
     private let disposeBag = DisposeBag()
-    private lazy var dataProvider: MovieDataProvider = {
+    lazy var dataProvider: MovieDataProvider = {
         let provider = MovieDataProvider.init()
         return provider
     }()
@@ -41,6 +41,7 @@ final class SearchViewController: UIViewController {
     
 }
 
+
 // MARK: - View Setup
 extension SearchViewController {
     
@@ -55,6 +56,7 @@ extension SearchViewController {
         tableView?.delegate = dataProvider
         tableView?.backgroundColor = .clear
         tableView?.emptyDataSetSource = self
+        if #available(iOS 10.0, *) { tableView?.prefetchDataSource = self }
         let movieNibCell = UINib(nibName: "MovieCell", bundle: nil)
         let loadingMovieNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
         tableView?.register(movieNibCell, forCellReuseIdentifier: movieCellIdentifier)
@@ -82,7 +84,7 @@ extension SearchViewController {
 }
 
 
-extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource, AlertShowable, HudDisplayable {
+extension SearchViewController: MovieDataProviderDelegate, AlertShowable, HudDisplayable {
     
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool) {
         if didFetchMovies == false {
@@ -103,6 +105,11 @@ extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource
         isLoadingMovies ? showHUD(title: title, message: message) : hideHUD()
     }
     
+}
+
+
+extension SearchViewController: DZNEmptyDataSetSource {
+    
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
         let emptyView = EmptyView()
         let state: EmptyViewState = isSearching ? .noMoviesFound : .notSearching
@@ -110,4 +117,5 @@ extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource
         presenter.configure(view: emptyView)
         return emptyView
     }
+    
 }

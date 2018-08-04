@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 
 protocol MovieDataProviderDelegate: AnyObject {
@@ -65,5 +66,15 @@ final class MovieDataProvider: NSObject {
         movies = []
         searchTerms = keywords
         fetchMoviesForSearchTerms()
+    }
+    
+    func imageRequests(indexPaths: [IndexPath]) -> [Nuke.ImageRequest] {
+        let movies: [Movie] = indexPaths.compactMap { indexPath in
+            guard indexPath.item < self.movies.count else { return nil }
+            return self.movies[indexPath.row]
+        }
+        let imageUrls = movies.compactMap { $0.fullPosterPath }
+        let requests = imageUrls.compactMap { URL.init(string: $0) }.compactMap { Nuke.ImageRequest.init(url: $0) }
+        return requests
     }
 }

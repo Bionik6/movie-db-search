@@ -71,6 +71,7 @@
 		40E483C22115F76500A8659B /* UILabel+LineHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483C12115F76500A8659B /* UILabel+LineHeight.swift */; };
 		40E483C42116085C00A8659B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E483C32116085C00A8659B /* MBProgressHUD.framework */; };
 		40E483C62116094900A8659B /* HudDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483C52116094900A8659B /* HudDisplayable.swift */; };
+		40E483C82116102100A8659B /* SearchViewController+ImagePreheating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483C72116102100A8659B /* SearchViewController+ImagePreheating.swift */; };
 		40ECA864211486DE00164ADD /* MovieDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */; };
 		40ECA8672114971A00164ADD /* MovieParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8662114971A00164ADD /* MovieParser.swift */; };
 		40ECA8692114973C00164ADD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8682114973C00164ADD /* Movie.swift */; };
@@ -167,6 +168,7 @@
 		40E483C12115F76500A8659B /* UILabel+LineHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LineHeight.swift"; sourceTree = "<group>"; };
 		40E483C32116085C00A8659B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		40E483C52116094900A8659B /* HudDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudDisplayable.swift; sourceTree = "<group>"; };
+		40E483C72116102100A8659B /* SearchViewController+ImagePreheating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+ImagePreheating.swift"; sourceTree = "<group>"; };
 		40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProviderTests.swift; sourceTree = "<group>"; };
 		40ECA8662114971A00164ADD /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		40ECA8682114973C00164ADD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5DB21138D7900C71043 /* SearchViewController.swift */,
+				40E483C72116102100A8659B /* SearchViewController+ImagePreheating.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				40E483BC2115EFD700A8659B /* AlertShowable.swift in Sources */,
 				40ECA8692114973C00164ADD /* Movie.swift in Sources */,
 				404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */,
+				40E483C82116102100A8659B /* SearchViewController+ImagePreheating.swift in Sources */,
 				4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */,
 				40E483B32115BCEA00A8659B /* MovieLoadingCell.swift in Sources */,
 				40E483C62116094900A8659B /* HudDisplayable.swift in Sources */,
