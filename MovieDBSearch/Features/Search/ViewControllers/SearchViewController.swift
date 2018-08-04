@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-let cellIdentifier = "Cell"
+let movieCellIdentifier = "MovieCell"
+let movieLoadingCellIdentifier = "MovieLoadingCell"
 
 final class SearchViewController: UIViewController {
     
@@ -28,9 +29,7 @@ final class SearchViewController: UIViewController {
     }()
     
     // MARK:- View Controller Lifecycle
-    override func loadView() {
-        self.view = searchView
-    }
+    override func loadView() { self.view = searchView }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +51,10 @@ extension SearchViewController {
         collectionView?.delegate = self
         collectionView?.backgroundColor = .clear
         let nibCell = UINib(nibName: "MovieCell", bundle: nil)
-        collectionView?.register(nibCell, forCellWithReuseIdentifier: cellIdentifier)
-        dataProvider.didFinishFetchingData = {
-            self.collectionView!.reloadData()
-        }
+        let loadingNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
+        collectionView?.register(nibCell, forCellWithReuseIdentifier: movieCellIdentifier)
+        collectionView?.register(loadingNibCell, forCellWithReuseIdentifier: movieLoadingCellIdentifier)
+        dataProvider.didFinishFetchingData = { self.collectionView!.reloadData() }
     }
     
     fileprivate func setupRXObservers() {

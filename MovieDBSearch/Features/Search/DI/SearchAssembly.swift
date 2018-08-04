@@ -14,6 +14,7 @@ final class SearchAssembly: Assembly {
     func assemble(container: Container) {
         registerParser(container: container)
         registerDisPatcher(container: container)
+        registerPageParser(container: container)
     }
 }
 
@@ -23,6 +24,12 @@ extension SearchAssembly {
     fileprivate func registerParser(container: Container) {
         container.register(MovieParser.self, factory: { resolver in
             return MovieJSONParser()
+        })
+    }
+    
+    fileprivate func registerPageParser(container: Container) {
+        container.register(PageParser.self, factory: { resolver in
+            return PageJSONParser()
         })
     }
     

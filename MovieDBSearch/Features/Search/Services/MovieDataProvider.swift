@@ -16,10 +16,11 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
     private var movies: [Movie] = []
     var didFinishFetchingData: ()->() = {  }
     private var currentPage = 1
+    private var shouldShowLoadingCell = false
     
     private lazy var factory: SearchFactory = {
         let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
-        let parser = mainAssembler?.resolver.resolve(MovieParser.self)!
+        let parser = mainAssembler?.resolver.resolve(PageParser.self)!
         return SearchFactory(client: client!, parser: parser!)
     }()
     
@@ -27,8 +28,8 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
         didSet {
             factory.fetchMovies(for: searchTerms, page: currentPage) { response in
                 switch response {
-                case .success(let movies):
-                    self.movies = movies.sorted(by: { $0.releaseDate > $1.releaseDate })
+                case .success(let page):
+                    self.movies = page.movies.sorted(by: { $0.releaseDate > $1.releaseDate })
                     self.didFinishFetchingData()
                 default: break
                 }
@@ -37,11 +38,11 @@ final class MovieDataProvider: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return shouldShowLoadingCell ? movies.count + 1 : movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MovieCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCellIdentifier, for: indexPath) as! MovieCell
         let presenter = MoviePresenter(movie: movies[indexPath.item])
         presenter.configure(cell: cell)
         return cell
