@@ -15,6 +15,7 @@ final class SearchAssembly: Assembly {
         registerParser(container: container)
         registerDisPatcher(container: container)
         registerPageParser(container: container)
+        registerQueryPersistence(container: container)
     }
 }
 
@@ -39,4 +40,12 @@ extension SearchAssembly {
             return client
         })
     }
+    
+    fileprivate func registerQueryPersistence(container: Container) {
+        container.register(QueryPersistence.self, factory: { resolver in
+            let persistence = JSONQueryPersistence()
+            return persistence
+        })
+    }
+    
 }

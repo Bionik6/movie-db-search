@@ -30,7 +30,8 @@ final class MovieDataProvider: NSObject {
     private lazy var factory: SearchFactory = {
         let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
         let parser = mainAssembler?.resolver.resolve(PageParser.self)!
-        return SearchFactory(client: client!, parser: parser!)
+        let persistence = mainAssembler?.resolver.resolve(QueryPersistence.self)!
+        return SearchFactory(client: client!, parser: parser!, persistence: persistence!)
     }()
     
     func fetchMoviesForSearchTerms() {

@@ -21,7 +21,7 @@ extension MovieDataProvider: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: movieCellIdentifier, for: indexPath) as! MovieCell
             let presenter = MoviePresenter(movie: movies[indexPath.item])
-            presenter.configure(cell: cell)
+            presenter.configure(with: cell)
             return cell
         }
     }

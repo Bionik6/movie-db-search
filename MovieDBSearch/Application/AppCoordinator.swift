@@ -9,6 +9,7 @@
 import UIKit
 
 var mainAssembler: MainAssembler?
+var log: Logger!
 
 final class AppCoordinator {
     
@@ -25,6 +26,7 @@ final class AppCoordinator {
         window.rootViewController = navigationController
         Theme.applyDefaultAppearance()
         mainAssembler = MainAssembler()
+        log = Logger()
     }
     
     private func setupRootViewController() {

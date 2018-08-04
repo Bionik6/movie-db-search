@@ -20,7 +20,7 @@ final class MoviePresenter {
 
 extension MoviePresenter {
     
-    func configure(cell: MovieCell) {
+    func configure(with cell: MovieCell) {
         if let url = URL(string: movie.fullPosterPath) {
             let options = ImageLoadingOptions(placeholder: #imageLiteral(resourceName: "poster_placeholder"), transition: ImageLoadingOptions.Transition.fadeIn(duration: 0.40))
             Nuke.loadImage(with: url, options: options, into: cell.posterimageView)

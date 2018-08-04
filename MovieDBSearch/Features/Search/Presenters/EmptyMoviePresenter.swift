@@ -21,7 +21,7 @@ final class EmptyMoviePresenter {
         self.state = state
     }
     
-    func configure(view: EmptyView) {
+    func configure(with view: EmptyView) {
         switch state {
         case .notSearching:
             view.imageView.image = #imageLiteral(resourceName: "icon_search_video_placeholder")

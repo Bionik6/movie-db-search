@@ -61,7 +61,6 @@ extension SearchViewController {
         let loadingMovieNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
         tableView?.register(movieNibCell, forCellReuseIdentifier: movieCellIdentifier)
         tableView?.register(loadingMovieNibCell, forCellReuseIdentifier: movieLoadingCellIdentifier)
-        
     }
     
     fileprivate func setupRXObservers() {
@@ -114,7 +113,7 @@ extension SearchViewController: DZNEmptyDataSetSource {
         let emptyView = EmptyView()
         let state: EmptyViewState = isSearching ? .noMoviesFound : .notSearching
         let presenter = EmptyMoviePresenter(state: state)
-        presenter.configure(view: emptyView)
+        presenter.configure(with: emptyView)
         return emptyView
     }
     
