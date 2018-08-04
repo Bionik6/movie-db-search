@@ -28,7 +28,7 @@ final class EmptyMoviePresenter {
             view.descriptionLabel.text = "Please use the search box\nabove in order to search your\nmovies"
         case .noMoviesFound:
             view.imageView.image = #imageLiteral(resourceName: "icon_no_results_found")
-            view.descriptionLabel.text = "No Results\nPlease use another keyword\nfor searching movie"
+            view.descriptionLabel.text = "No Results\nPlease use another keyword\nfor searching movies"
         }
         view.descriptionLabel.set(lineHeight: 4.0, alignment: .center)
     }

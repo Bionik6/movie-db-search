@@ -3,3 +3,4 @@ github "dzenbot/DZNEmptyDataSet"
 github "Swinject/Swinject"
 github "kean/Nuke" ~> 7.0
 github "SwiftyJSON/SwiftyJSON" ~> 4.0
+github "jdg/MBProgressHUD" ~> 1.1.0

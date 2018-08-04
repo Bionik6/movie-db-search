@@ -11,6 +11,7 @@ import UIKit
 
 protocol MovieDataProviderDelegate: AnyObject {
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool)
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, isLoadingMovies: Bool)
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError)
 }
 
@@ -32,7 +33,11 @@ final class MovieDataProvider: NSObject {
     }()
     
     func fetchMoviesForSearchTerms() {
+        if currentPage == 1 {
+            delegate?.movieDataProvider(self, isLoadingMovies: true)
+        }
         factory.fetchMovies(for: searchTerms, page: currentPage) { response in
+            self.delegate?.movieDataProvider(self, isLoadingMovies: false)
             switch response {
             case .success(let page):
                 self.shouldShowLoadingCell = page.currentPage < page.totalPages

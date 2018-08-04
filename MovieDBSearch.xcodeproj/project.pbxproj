@@ -69,6 +69,8 @@
 		40E483BE2115F48F00A8659B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483BD2115F48F00A8659B /* EmptyView.swift */; };
 		40E483C02115F6D100A8659B /* EmptyMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483BF2115F6D100A8659B /* EmptyMoviePresenter.swift */; };
 		40E483C22115F76500A8659B /* UILabel+LineHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483C12115F76500A8659B /* UILabel+LineHeight.swift */; };
+		40E483C42116085C00A8659B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E483C32116085C00A8659B /* MBProgressHUD.framework */; };
+		40E483C62116094900A8659B /* HudDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483C52116094900A8659B /* HudDisplayable.swift */; };
 		40ECA864211486DE00164ADD /* MovieDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */; };
 		40ECA8672114971A00164ADD /* MovieParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8662114971A00164ADD /* MovieParser.swift */; };
 		40ECA8692114973C00164ADD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8682114973C00164ADD /* Movie.swift */; };
@@ -163,6 +165,8 @@
 		40E483BD2115F48F00A8659B /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		40E483BF2115F6D100A8659B /* EmptyMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMoviePresenter.swift; sourceTree = "<group>"; };
 		40E483C12115F76500A8659B /* UILabel+LineHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LineHeight.swift"; sourceTree = "<group>"; };
+		40E483C32116085C00A8659B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		40E483C52116094900A8659B /* HudDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudDisplayable.swift; sourceTree = "<group>"; };
 		40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProviderTests.swift; sourceTree = "<group>"; };
 		40ECA8662114971A00164ADD /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		40ECA8682114973C00164ADD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				4039F5CA211375C900C71043 /* Swinject.framework in Frameworks */,
 				40ECA87121149AB200164ADD /* Nuke.framework in Frameworks */,
 				40ECA86F21149A3F00164ADD /* SwiftyJSON.framework in Frameworks */,
+				40E483C42116085C00A8659B /* MBProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +218,7 @@
 		4039F5C42113757A00C71043 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40E483C32116085C00A8659B /* MBProgressHUD.framework */,
 				40ECA87021149AB200164ADD /* Nuke.framework */,
 				40ECA86E21149A3F00164ADD /* SwiftyJSON.framework */,
 				4039F5C8211375C900C71043 /* DZNEmptyDataSet.framework */,
@@ -477,6 +483,7 @@
 				4039F5D921138D3E00C71043 /* XibInitializable.swift */,
 				4039F6012113DD6F00C71043 /* SessionProtocol.swift */,
 				40E483BB2115EFD700A8659B /* AlertShowable.swift */,
+				40E483C52116094900A8659B /* HudDisplayable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -698,6 +705,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 			);
 			name = "Carthage Frameworks";
 			outputPaths = (
@@ -739,6 +747,7 @@
 				404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */,
 				4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */,
 				40E483B32115BCEA00A8659B /* MovieLoadingCell.swift in Sources */,
+				40E483C62116094900A8659B /* HudDisplayable.swift in Sources */,
 				40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */,
 				40E483B62115BD9500A8659B /* GradientView.swift in Sources */,
 				40E483BE2115F48F00A8659B /* EmptyView.swift in Sources */,

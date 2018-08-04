@@ -82,19 +82,25 @@ extension SearchViewController {
 }
 
 
-extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource {
+extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource, AlertShowable, HudDisplayable {
     
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool) {
-        if didFetchMovies == false { self.isSearching = true }
-        tableView?.reloadData()
-        if didFetchMovies {
-            let firstIndexPath = IndexPath(row: 0, section: 0)
-            tableView?.scrollToRow(at: firstIndexPath, at: .top, animated: true)
+        if didFetchMovies == false {
+            self.isSearching = true
+            let message = "Movies based on the keywords you type don't exist, please use another keyword."
+            self.showAlert(title: "No Movies found", message: message)
         }
+        tableView?.reloadData()
     }
     
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError) {
         
+    }
+    
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, isLoadingMovies: Bool) {
+        let title = "Fetching Movies"
+        let message = "Please wait while we're fetching movies based on your keywords"
+        isLoadingMovies ? showHUD(title: title, message: message) : hideHUD()
     }
     
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {

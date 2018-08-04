@@ -19,13 +19,6 @@ extension AlertShowable where Self: UIViewController {
         executeInMainThread { self.present(alertController, animated: true, completion: nil) }
     }
     
-    func showSuccessAlert(title: String = "Success", message: String, completion: (() -> ())? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction        = UIAlertAction(title: "OK", style: .default, handler: { _ in completion?() })
-        alertController.addAction(okAction)
-        executeInMainThread { self.present(alertController, animated: true, completion: nil) }
-    }
-    
 }
 
 func executeInMainThread(completion: @escaping ()->()) {
