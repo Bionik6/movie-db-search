@@ -18,7 +18,7 @@ final class SearchViewController: UIViewController {
     // MARK:- Properties
     private(set) lazy var searchView = SearchView(frame: UIScreen.main.bounds)
     private(set) lazy var searchTextField = searchView.searchTextField
-    private(set) lazy var collectionView = searchView.collectionView
+    private(set) lazy var tableView = searchView.tableView
     
     private let disposeBag = DisposeBag()
     private lazy var dataProvider: MovieDataProvider = {
@@ -46,14 +46,16 @@ extension SearchViewController {
     }
     
     fileprivate func setupCollectionView() {
-        collectionView?.dataSource = dataProvider
-        collectionView?.delegate = dataProvider
-        collectionView?.backgroundColor = .clear
-        let nibCell = UINib(nibName: "MovieCell", bundle: nil)
-        let loadingNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
-        collectionView?.register(nibCell, forCellWithReuseIdentifier: movieCellIdentifier)
-        collectionView?.register(loadingNibCell, forCellWithReuseIdentifier: movieLoadingCellIdentifier)
-        dataProvider.didFinishFetchingData = { self.collectionView!.reloadData() }
+        tableView?.estimatedRowHeight = 120
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.dataSource = dataProvider
+        tableView?.delegate = dataProvider
+        tableView?.backgroundColor = .clear
+        let movieNibCell = UINib(nibName: "MovieCell", bundle: nil)
+        let loadingMovieNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
+        tableView?.register(movieNibCell, forCellReuseIdentifier: movieCellIdentifier)
+        tableView?.register(loadingMovieNibCell, forCellReuseIdentifier: movieLoadingCellIdentifier)
+        dataProvider.didFinishFetchingData = { self.tableView!.reloadData() }
     }
     
     fileprivate func setupRXObservers() {

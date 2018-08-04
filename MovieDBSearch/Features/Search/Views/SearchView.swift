@@ -13,8 +13,8 @@ class SearchView: BaseView, XibInitializable {
     @IBOutlet private(set) weak var topSearchButton: GradientButton!
     @IBOutlet private(set) weak var searchTextField: CustomTextField!
     @IBOutlet private(set) weak var searchTextFieldTrailingConstraint: NSLayoutConstraint!
-    @IBOutlet private(set) weak var collectionView: UICollectionView!
     @IBOutlet private(set) weak var bottomSearchButton: GradientButton!
+    @IBOutlet weak var tableView: UITableView!
     
     override func initializeView() { setupXib() }
     

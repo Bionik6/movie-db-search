@@ -8,21 +8,22 @@
 
 import UIKit
 
-extension MovieDataProvider: UICollectionViewDataSource {
+extension MovieDataProvider: UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shouldShowLoadingCell ? movies.count + 1 : movies.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoadingIndexPath(indexPath) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieLoadingCellIdentifier, for: indexPath) as! MovieLoadingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: movieLoadingCellIdentifier, for: indexPath) as! MovieLoadingCell
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCellIdentifier, for: indexPath) as! MovieCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: movieCellIdentifier, for: indexPath) as! MovieCell
             let presenter = MoviePresenter(movie: movies[indexPath.item])
             presenter.configure(cell: cell)
             return cell
         }
     }
+
 }

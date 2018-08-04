@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieLoadingCell: UICollectionViewCell {
+class MovieLoadingCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
