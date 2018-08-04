@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import DZNEmptyDataSet
 
 let movieCellIdentifier = "MovieCell"
 let movieLoadingCellIdentifier = "MovieLoadingCell"
@@ -19,6 +20,7 @@ final class SearchViewController: UIViewController {
     private(set) lazy var searchView = SearchView(frame: UIScreen.main.bounds)
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var tableView = searchView.tableView
+    fileprivate var isSearching = false
     
     private let disposeBag = DisposeBag()
     private lazy var dataProvider: MovieDataProvider = {
@@ -34,6 +36,7 @@ final class SearchViewController: UIViewController {
         setupView()
         setupRXObservers()
         setupTableView()
+        setupDataProvider()
     }
     
 }
@@ -51,11 +54,12 @@ extension SearchViewController {
         tableView?.dataSource = dataProvider
         tableView?.delegate = dataProvider
         tableView?.backgroundColor = .clear
+        tableView?.emptyDataSetSource = self
         let movieNibCell = UINib(nibName: "MovieCell", bundle: nil)
         let loadingMovieNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
         tableView?.register(movieNibCell, forCellReuseIdentifier: movieCellIdentifier)
         tableView?.register(loadingMovieNibCell, forCellReuseIdentifier: movieLoadingCellIdentifier)
-        dataProvider.didFinishFetchingData = { self.tableView!.reloadData() }
+        
     }
     
     fileprivate func setupRXObservers() {
@@ -71,4 +75,33 @@ extension SearchViewController {
         }).disposed(by: disposeBag)
     }
     
+    fileprivate func setupDataProvider() {
+        dataProvider.delegate = self
+    }
+    
+}
+
+
+extension SearchViewController: MovieDataProviderDelegate, DZNEmptyDataSetSource {
+    
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool) {
+        if didFetchMovies == false { self.isSearching = true }
+        tableView?.reloadData()
+        if didFetchMovies {
+            let firstIndexPath = IndexPath(row: 0, section: 0)
+            tableView?.scrollToRow(at: firstIndexPath, at: .top, animated: true)
+        }
+    }
+    
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError) {
+        
+    }
+    
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+        let emptyView = EmptyView()
+        let state: EmptyViewState = isSearching ? .noMoviesFound : .notSearching
+        let presenter = EmptyMoviePresenter(state: state)
+        presenter.configure(view: emptyView)
+        return emptyView
+    }
 }

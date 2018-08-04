@@ -27,7 +27,8 @@ final class SearchFactory {
                     let page = self.parser.parse(data: data)
                     OperationQueue.main.addOperation { completion(.success(page)) }
                 }
-            case .failure(let error): print(error)
+            case .failure(let error):
+                OperationQueue.main.addOperation { completion(.failure(error)) }
             }
         }
     }

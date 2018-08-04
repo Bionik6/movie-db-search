@@ -23,7 +23,7 @@ class SearchView: BaseView, XibInitializable {
     }
     
     func showTopSearchButton() {
-        searchTextFieldTrailingConstraint.constant = 116
+        searchTextFieldTrailingConstraint.constant = 108
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
             self.topSearchButton.transform = CGAffineTransform.identity
             self.layoutIfNeeded()
@@ -31,7 +31,7 @@ class SearchView: BaseView, XibInitializable {
     }
     
     func hideTopSearchButton() {
-        searchTextFieldTrailingConstraint.constant = 16
+        searchTextFieldTrailingConstraint.constant = 8
         UIView.animate(withDuration: 0.4,
                        delay: 0,
                        usingSpringWithDamping: 1.0,

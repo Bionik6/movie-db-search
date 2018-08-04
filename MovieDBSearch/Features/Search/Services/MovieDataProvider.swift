@@ -7,15 +7,20 @@
 //
 
 import UIKit
-import Swinject
+
+
+protocol MovieDataProviderDelegate: AnyObject {
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool)
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError)
+}
 
 
 final class MovieDataProvider: NSObject {
     
     var isSearching = false
     var movies: [Movie] = []
-    var didFinishFetchingData: ()->() = {  }
     var shouldShowLoadingCell = false
+    weak var delegate: MovieDataProviderDelegate?
     
     private var searchTerms = ""
     private var currentPage = 1
@@ -32,8 +37,9 @@ final class MovieDataProvider: NSObject {
             case .success(let page):
                 self.shouldShowLoadingCell = page.currentPage < page.totalPages
                 self.movies.append(contentsOf: page.movies)
-                self.didFinishFetchingData()
-            default: break
+                self.delegate?.movieDataProvider(self, didFetchMovies: page.movies.count > 0 ? true : false)
+            case .failure(let error):
+                self.delegate?.movieDataProvider(self, didGetError: error)
             }
         }
     }

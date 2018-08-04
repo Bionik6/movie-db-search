@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for a movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nhn-Xc-6bV" customClass="CustomTextField" customModule="MovieDBSearch" customModuleProvider="target">
-                    <rect key="frame" x="16" y="80" width="343" height="48"/>
+                    <rect key="frame" x="8" y="80" width="359" height="48"/>
                     <color key="backgroundColor" red="0.18823529410000001" green="0.18039215689999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="3K6-u5-PRA"/>
@@ -35,7 +35,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="search"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-2e-UNv" customClass="GradientButton" customModule="MovieDBSearch" customModuleProvider="target">
-                    <rect key="frame" x="267" y="80" width="92" height="48"/>
+                    <rect key="frame" x="275" y="80" width="92" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="2Em-IC-4DK"/>
                         <constraint firstAttribute="width" constant="92" id="DIp-eV-k3i"/>
@@ -70,9 +70,9 @@
             </subviews>
             <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Nhn-Xc-6bV" secondAttribute="trailing" constant="16" id="EHn-9L-fF4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="e3X-2e-UNv" secondAttribute="trailing" constant="16" id="GFQ-MK-8Lg"/>
-                <constraint firstItem="Nhn-Xc-6bV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="NkM-fM-5gH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Nhn-Xc-6bV" secondAttribute="trailing" constant="8" id="EHn-9L-fF4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="e3X-2e-UNv" secondAttribute="trailing" constant="8" id="GFQ-MK-8Lg"/>
+                <constraint firstItem="Nhn-Xc-6bV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="NkM-fM-5gH"/>
                 <constraint firstItem="Q8c-Xs-keq" firstAttribute="top" secondItem="Nhn-Xc-6bV" secondAttribute="bottom" constant="8" id="OvR-47-iCN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q8c-Xs-keq" secondAttribute="trailing" id="PUO-tb-Qf4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aAZ-fn-Yn9" secondAttribute="bottom" constant="16" id="Ret-4k-dZE"/>
