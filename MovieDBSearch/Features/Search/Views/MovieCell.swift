@@ -18,6 +18,8 @@ class MovieCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        posterimageView.layer.cornerRadius = 4.0
+        posterimageView.contentMode = .scaleAspectFill
     }
 
 }

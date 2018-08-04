@@ -16,4 +16,3 @@ class MovieLoadingCell: UITableViewCell {
     }
 
 }
-
