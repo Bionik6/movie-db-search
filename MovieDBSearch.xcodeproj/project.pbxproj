@@ -44,7 +44,6 @@
 		404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA32114B37400C25B13 /* SearchFactory.swift */; };
 		404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA52114D20300C25B13 /* MovieCell.swift */; };
 		404EBBA82114D20300C25B13 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404EBBA62114D20300C25B13 /* MovieCell.xib */; };
-		404EBBAA2114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		404EBBAC2114EB9100C25B13 /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBAB2114EB9100C25B13 /* MoviePresenter.swift */; };
 		404EBBAE2114F9EF00C25B13 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBAD2114F9EF00C25B13 /* Page.swift */; };
 		404EBBB02114FB1F00C25B13 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBAF2114FB1F00C25B13 /* PageParser.swift */; };
@@ -64,6 +63,7 @@
 		40E483B32115BCEA00A8659B /* MovieLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B12115BCEA00A8659B /* MovieLoadingCell.swift */; };
 		40E483B42115BCEA00A8659B /* MovieLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40E483B22115BCEA00A8659B /* MovieLoadingCell.xib */; };
 		40E483B62115BD9500A8659B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B52115BD9500A8659B /* GradientView.swift */; };
+		40E483B82115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */; };
 		40ECA864211486DE00164ADD /* MovieDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */; };
 		40ECA8672114971A00164ADD /* MovieParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8662114971A00164ADD /* MovieParser.swift */; };
 		40ECA8692114973C00164ADD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8682114973C00164ADD /* Movie.swift */; };
@@ -127,7 +127,6 @@
 		404EBBA32114B37400C25B13 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
 		404EBBA52114D20300C25B13 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		404EBBA62114D20300C25B13 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
-		404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		404EBBAB2114EB9100C25B13 /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
 		404EBBAD2114F9EF00C25B13 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		404EBBAF2114FB1F00C25B13 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageParser.swift; sourceTree = "<group>"; };
@@ -153,6 +152,7 @@
 		40E483B12115BCEA00A8659B /* MovieLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoadingCell.swift; sourceTree = "<group>"; };
 		40E483B22115BCEA00A8659B /* MovieLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieLoadingCell.xib; sourceTree = "<group>"; };
 		40E483B52115BD9500A8659B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDataProvider+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProviderTests.swift; sourceTree = "<group>"; };
 		40ECA8662114971A00164ADD /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		40ECA8682114973C00164ADD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -398,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				4039F5E92113A70600C71043 /* MovieDataProvider.swift */,
+				40E483B72115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,7 +407,6 @@
 			isa = PBXGroup;
 			children = (
 				4039F5DB21138D7900C71043 /* SearchViewController.swift */,
-				404EBBA92114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -711,6 +711,7 @@
 				40C8ED6D2111DA7900A3F2E2 /* Request.swift in Sources */,
 				4039F5E62113924800C71043 /* AppCoordinator.swift in Sources */,
 				4039F5EA2113A70600C71043 /* MovieDataProvider.swift in Sources */,
+				40E483B82115C52B00A8659B /* MovieDataProvider+CollectionViewDelegate.swift in Sources */,
 				4039F6022113DD6F00C71043 /* SessionProtocol.swift in Sources */,
 				4039F5DC21138D7900C71043 /* SearchViewController.swift in Sources */,
 				404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */,
@@ -724,7 +725,6 @@
 				404EBBB02114FB1F00C25B13 /* PageParser.swift in Sources */,
 				4039F5F62113C37300C71043 /* MainAssembler.swift in Sources */,
 				404EBBA121149F2300C25B13 /* SearchAssembly.swift in Sources */,
-				404EBBAA2114D36D00C25B13 /* SearchViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				4039F5DE21138DA900C71043 /* SearchView.swift in Sources */,
 				40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */,
 				4039F5D821138D1A00C71043 /* BaseView.swift in Sources */,
