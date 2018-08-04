@@ -9,17 +9,35 @@
 import SwiftyJSON
 import Foundation
 
-struct Query {
+class Query: NSObject, NSCoding {
+    
     var keyword: String
-    var createdTimestamp: TimeInterval
+    var createdDate: String
+    
+    init(keyword: String, createdDate: String = Date().toString) {
+        self.keyword = keyword
+        self.createdDate = createdDate
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.keyword, forKey: "keyword")
+        aCoder.encode(self.createdDate, forKey: "createdDate")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let keyword = aDecoder.decodeObject(forKey: "keyword") as? String,
+            let createdDate = aDecoder.decodeObject(forKey: "createdDate") as? String else { return nil }
+        self.init(keyword: keyword, createdDate: createdDate)
+    }
 }
 
 
-extension Query {
+extension Date {
     
-    init(json: JSON) {
-        self.keyword = json["keyword"].stringValue
-        self.createdTimestamp = json["createdTimestamp"].doubleValue
+    var toString: String {
+        let format = DateFormatter()
+        format.dateFormat="yyyy-MM-dd-HH-mm-ss-SSSS"
+        return format.string(from: self)
     }
     
 }

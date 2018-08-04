@@ -43,7 +43,7 @@ extension SearchAssembly {
     
     fileprivate func registerQueryPersistence(container: Container) {
         container.register(QueryPersistence.self, factory: { resolver in
-            let persistence = JSONQueryPersistence()
+            let persistence = DefaultQueryPersistence()
             return persistence
         })
     }
