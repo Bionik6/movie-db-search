@@ -28,7 +28,9 @@ final class SearchFactory {
                 if let data = data {
                     let page = self.parser.parse(data: data)
                     OperationQueue.main.addOperation {
-                        self.persistence.saveQuery(keyword: searchTerms)
+                        if page.movies.count > 0 {
+                            self.persistence.saveQuery(keyword: searchTerms)
+                        }
                         log.debug(self.persistence.retriveQueries())
                         completion(.success(page))
                     }

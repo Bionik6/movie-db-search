@@ -11,20 +11,24 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-let movieCellIdentifier = "MovieCell"
-let movieLoadingCellIdentifier = "MovieLoadingCell"
-
 final class SearchViewController: UIViewController {
     
     // MARK:- Properties
     private(set) lazy var searchView = SearchView(frame: UIScreen.main.bounds)
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var tableView = searchView.tableView
+    private(set) lazy var suggestionTableView = searchView.suggestionTableView
     fileprivate var isSearching = false
-    
     private let disposeBag = DisposeBag()
+    
     lazy var dataProvider: MovieDataProvider = {
         let provider = MovieDataProvider.init()
+        return provider
+    }()
+    
+    private lazy var suggestionDataProvider: SuggestionDataProvider = {
+        let persistence = mainAssembler?.resolver.resolve(QueryPersistence.self)!
+        let provider = SuggestionDataProvider(persistence: persistence!)
         return provider
     }()
     
@@ -35,8 +39,10 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupRXObservers()
-        setupTableView()
         setupDataProvider()
+        setupMainTableViewDataSourceAndDelegate()
+        setupSuggestionTableViewDataSourceAndDelegate()
+        searchView.hideSuggestionTableView()
     }
     
 }
@@ -49,27 +55,31 @@ extension SearchViewController {
         title = "MOVIE DB Search"
     }
     
-    fileprivate func setupTableView() {
-        tableView?.estimatedRowHeight = 120
-        tableView?.rowHeight = UITableViewAutomaticDimension
+    fileprivate func setupMainTableViewDataSourceAndDelegate() {
         tableView?.dataSource = dataProvider
         tableView?.delegate = dataProvider
-        tableView?.backgroundColor = .clear
         tableView?.emptyDataSetSource = self
         if #available(iOS 10.0, *) { tableView?.prefetchDataSource = self }
-        let movieNibCell = UINib(nibName: "MovieCell", bundle: nil)
-        let loadingMovieNibCell = UINib(nibName: "MovieLoadingCell", bundle: nil)
-        tableView?.register(movieNibCell, forCellReuseIdentifier: movieCellIdentifier)
-        tableView?.register(loadingMovieNibCell, forCellReuseIdentifier: movieLoadingCellIdentifier)
+    }
+    
+    fileprivate func setupSuggestionTableViewDataSourceAndDelegate() {
+        suggestionTableView?.dataSource = suggestionDataProvider
+        suggestionTableView?.delegate = suggestionDataProvider
     }
     
     fileprivate func setupRXObservers() {
         searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
             text.count > 0 ? self.searchView.showTopSearchButton() : self.searchView.hideTopSearchButton()
         }).disposed(by: disposeBag)
+        searchTextField?.rx.controlEvent([.editingDidBegin]).subscribe(onNext: { _ in
+            self.suggestionDataProvider.queries.count > 0
+                ? self.searchView.showSuggestionTableView()
+                : self.searchView.hideSuggestionTableView()
+        }).disposed(by: disposeBag)
         searchTextField?.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: { _ in
             let keywords = self.searchTextField?.text!
             self.dataProvider.makeSearch(for: keywords!)
+            self.searchView.hideSuggestionTableView()
         }).disposed(by: disposeBag)
         searchView.bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
             self.searchTextField?.becomeFirstResponder()

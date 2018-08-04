@@ -20,7 +20,7 @@ class DefaultQueryPersistence: QueryPersistence {
     
     private lazy var defaultManager = FileManager.default
     
-    var jsonURL: URL {
+    private var jsonURL: URL {
         let documentDirectoryUrl = defaultManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         return documentDirectoryUrl.appendingPathComponent("Queries")
     }
@@ -28,11 +28,13 @@ class DefaultQueryPersistence: QueryPersistence {
     func saveQuery(keyword: String) {
         let query = Query(keyword: keyword)
         if var queries = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Query] {
-            let keywords = queries.compactMap { $0.keyword }
-            if !keywords.contains(keyword) {
-                queries.append(query)
-                NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
-            }
+            //            let keywords = queries.compactMap { $0.keyword }
+            queries.append(query)
+            NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
+            //            if !keywords.contains(keyword) {
+            //                queries.append(query)
+            //                NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
+            //            }
         } else {
             NSKeyedArchiver.archiveRootObject([query], toFile: jsonURL.path)
         }
