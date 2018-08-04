@@ -33,7 +33,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupRXObservers()
-        setupCollectionView()
+        setupTableView()
     }
     
 }
@@ -45,7 +45,7 @@ extension SearchViewController {
         title = "MOVIE DB Search"
     }
     
-    fileprivate func setupCollectionView() {
+    fileprivate func setupTableView() {
         tableView?.estimatedRowHeight = 120
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.dataSource = dataProvider

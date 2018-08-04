@@ -16,8 +16,4 @@ extension MovieDataProvider: UITableViewDelegate {
         fetchNextPage()
     }
     
-    
-    
 }
-
-
