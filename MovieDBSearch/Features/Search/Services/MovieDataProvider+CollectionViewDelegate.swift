@@ -8,6 +8,18 @@
 
 import UIKit
 
+// MARK: - UICollectionViewDelegate
+extension MovieDataProvider {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard isLoadingIndexPath(indexPath) else { return }
+        fetchNextPage()
+    }
+    
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MovieDataProvider: UICollectionViewDelegateFlowLayout  {
     
     private var itemsPerRow: Int { return 1 }
@@ -17,7 +29,17 @@ extension MovieDataProvider: UICollectionViewDelegateFlowLayout  {
         let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingSpace
         let widthPerItem = availableWidth / CGFloat(itemsPerRow)
-        return CGSize(width: widthPerItem, height: shouldShowLoadingCell ? 80 : 120)
+        var cellHeight: CGFloat!
+        if(!shouldShowLoadingCell) {
+            let height = heightForItem(at: indexPath, view: collectionView)
+            let posterImageHeight: CGFloat = 100.0
+            cellHeight = height < posterImageHeight ? 120 : height
+        } else {
+            cellHeight = 80
+        }
+        print(cellHeight)
+        
+        return CGSize(width: widthPerItem, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -28,12 +50,19 @@ extension MovieDataProvider: UICollectionViewDelegateFlowLayout  {
         return sectionInsets.left
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+    private func heightForItem(at indexPath: IndexPath, view: UIView) -> CGFloat {
+        let movie = movies[indexPath.item]
+        let titleTextRect = rect(for: movie.name, font: Theme.Fonts.avenirNextMedium(size: 18).value, view: view)
+        let releaseDateTextRect = rect(for: movie.releaseDate, font: Theme.Fonts.avenirNextMedium(size: 14).value, view: view)
+        let overviewTextRect = rect(for: movie.overview, font: Theme.Fonts.avenirNextMedium(size: 14).value, view: view)
+        let totalHeight = titleTextRect.height + releaseDateTextRect.height + overviewTextRect.height + 50
+        return totalHeight
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard isLoadingIndexPath(indexPath) else { return }
-        fetchNextPage()
+    private func rect(for text: String, font: UIFont, view: UIView) -> CGRect {
+        return NSString(string: text).boundingRect(with: CGSize(width: view.frame.width, height: 1000),
+                                                   options: [.usesFontLeading, .usesLineFragmentOrigin],
+                                                   attributes: [NSAttributedStringKey.font: font],
+                                                   context: nil)
     }
 }
