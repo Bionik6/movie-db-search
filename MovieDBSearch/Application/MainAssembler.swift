@@ -8,6 +8,8 @@
 
 import Swinject
 
+
+/// Main object for assembling all the resolvers we created
 final class MainAssembler {
     
     private let assembler = Assembler()
@@ -15,9 +17,7 @@ final class MainAssembler {
     var resolver: Resolver { return assembler.resolver }
     
     init() {
-        assembler.apply(assemblies: [
-            SearchAssembly()
-            ])
+        assembler.apply(assembly: SearchAssembly.init())
     }
     
 }

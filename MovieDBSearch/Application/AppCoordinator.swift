@@ -8,9 +8,10 @@
 
 import UIKit
 
-var mainAssembler: MainAssembler?
-var log: Logger!
 
+var mainAssembler: MainAssembler?
+
+/// Object responsible of the navigation flow of the app
 final class AppCoordinator {
     
     private let window: UIWindow
@@ -21,12 +22,13 @@ final class AppCoordinator {
         self.window.makeKeyAndVisible()
     }
     
+    
+    /// Method to be called to initialize navigation
     func start() {
         setupRootViewController()
         window.rootViewController = navigationController
         Theme.applyDefaultAppearance()
         mainAssembler = MainAssembler()
-        log = Logger()
     }
     
     private func setupRootViewController() {
