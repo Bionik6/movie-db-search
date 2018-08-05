@@ -13,7 +13,7 @@ import Nuke
 protocol MovieDataProviderDelegate: AnyObject {
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, didFetchMovies: Bool)
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, isLoadingMovies: Bool)
-    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError)
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError error: ResponseError)
 }
 
 

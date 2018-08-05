@@ -114,9 +114,9 @@ extension SearchViewController: MovieDataProviderDelegate, AlertShowable, HudDis
         }
         tableView?.reloadData()
     }
-    
-    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError: ResponseError) {
-        
+
+    func movieDataProvider(_ movieDataProvider: MovieDataProvider, didGetError error: ResponseError) {
+        self.showAlert(title: error.reason.title, message: error.reason.message)
     }
     
     func movieDataProvider(_ movieDataProvider: MovieDataProvider, isLoadingMovies: Bool) {

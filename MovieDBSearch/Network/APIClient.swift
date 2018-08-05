@@ -24,7 +24,12 @@ final class APIClient: Dispatcher {
                 completion(.success(data))
             }
             else {
-                completion(.failure(ResponseError.noInternetConnection))
+                let domainError = error! as NSError
+                if domainError.code == -1009 {
+                    completion(.failure(ResponseError.noInternetConnection))
+                    return
+                }
+                completion(.failure(ResponseError.unknown(message: domainError.localizedDescription)))
             }
         }.resume()
     }

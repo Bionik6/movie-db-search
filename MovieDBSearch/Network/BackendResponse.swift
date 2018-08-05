@@ -10,8 +10,17 @@ import Foundation
 
 enum ResponseError: Error {
     case noInternetConnection
-    case dataCouldNotBeProcessed
-    case noAPIKeyProvided
+    case unknown(message: String)
+    
+    var reason: (title: String, message: String) {
+        switch self {
+        case .noInternetConnection:
+            return ("No Internet Connection", "You have no internet connection. Please make sure you're connected to internet")
+        case .unknown(let message):
+            return ("Can't load movies", message)
+        }
+    }
+    
 }
 
 
