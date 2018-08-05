@@ -12,6 +12,13 @@ protocol AlertShowable { }
 
 extension AlertShowable where Self: UIViewController {
     
+    
+    /// Show an Alert of type UIAlertController
+    ///
+    /// - Parameters:
+    ///   - title: The title of the Alert
+    ///   - message: The message of the Alert
+    ///   - completion: The block that should be call when we dismiss the alert
     func showAlert(title: String, message: String, completion: (()->())? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in completion?() }
