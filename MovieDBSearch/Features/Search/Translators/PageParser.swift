@@ -25,5 +25,5 @@ final class PageJSONParser: PageParser {
         guard let jsonData = try? JSON(data: data) else { fatalError("Could not create json with the data provided") }
         return Page.init(json: jsonData)
     }
-
+    
 }
