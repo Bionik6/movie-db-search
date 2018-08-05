@@ -19,19 +19,13 @@ class MovieDataProviderTests: XCTestCase {
         super.setUp()
         session = URLSessionMock()
         client = DispatcherMock(session: session)
-        sut = MovieDataProvider(client: client)
+        sut = MovieDataProvider.init()
     }
     
     
     func testFetchMovies() {
-        sut.fetchMovies(for: "toto") { response in
+        sut.factory.fetchMovies(for: "toto", page: 1) { response in
             XCTAssertTrue(self.session.isDataTaskCalled)
-            switch response {
-            case .success(let data):
-                XCTAssertEqual(self.session.data, data)
-            case .failure(let error):
-                XCTAssertEqual(self.session.error, error)
-            }
         }
         
     }

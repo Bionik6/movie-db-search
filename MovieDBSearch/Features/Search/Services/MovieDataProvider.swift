@@ -27,7 +27,7 @@ final class MovieDataProvider: NSObject {
     private var searchTerms = ""
     private var currentPage = 1
     
-    private lazy var factory: SearchFactory = {
+    private(set) lazy var factory: SearchFactory = {
         let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
         let parser = mainAssembler?.resolver.resolve(PageParser.self)!
         let persistence = mainAssembler?.resolver.resolve(SuggestionPersistence.self)!

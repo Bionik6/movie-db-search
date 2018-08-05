@@ -31,7 +31,7 @@ class BackendResponseTests: XCTestCase {
     func testSutHasFailureCaseWithAssociatedData() {
         sut = BackendResponse.failure(error)
         if case let .failure(error) = sut! {
-            XCTAssertEqual(error, self.error)
+            XCTAssertEqual(error.localizedDescription, error.localizedDescription)
         }
     }
     

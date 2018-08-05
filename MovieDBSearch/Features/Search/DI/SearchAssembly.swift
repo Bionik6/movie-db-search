@@ -9,10 +9,15 @@
 import Swinject
 
 
+
+/// Assemble our assemblies in the container
 final class SearchAssembly: Assembly {
     
+    
+    /// Register all the dependencies to the container
+    ///
+    /// - Parameter container: The default container where all our objects are registered
     func assemble(container: Container) {
-        registerParser(container: container)
         registerDisPatcher(container: container)
         registerPageParser(container: container)
         registerSuggestionPersistence(container: container)
@@ -21,12 +26,6 @@ final class SearchAssembly: Assembly {
 
 
 extension SearchAssembly {
-    
-    fileprivate func registerParser(container: Container) {
-        container.register(MovieParser.self, factory: { resolver in
-            return MovieJSONParser()
-        })
-    }
     
     fileprivate func registerPageParser(container: Container) {
         container.register(PageParser.self, factory: { resolver in

@@ -30,11 +30,14 @@ class SearchViewControllerTests: XCTestCase {
     
     func testSutViewPropertiesAreNotNil() {
         XCTAssertNotNil(sut.searchTextField)
-        XCTAssertNotNil(sut.collectionView)
+        XCTAssertNotNil(sut.tableView)
+        XCTAssertNotNil(sut.suggestionTableView)
     }
     
-    func testSutCollectionViewSetDataSource() {
-        XCTAssertTrue(sut.collectionView?.dataSource is MovieDataProvider)
+    func testSutTableViewsSetDataSource() {
+        XCTAssertTrue(sut.tableView?.dataSource is MovieDataProvider)
+        XCTAssertTrue(sut.tableView?.delegate is MovieDataProvider)
+        XCTAssertTrue(sut.suggestionTableView?.dataSource is SuggestionDataProvider)
     }
     
 }

@@ -39,7 +39,6 @@
 		4039F6082113F92A00C71043 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F6072113F92A00C71043 /* SearchRequest.swift */; };
 		4039F60C2114005100C71043 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4039F60B2114005100C71043 /* APIKey.plist */; };
 		4039F60E2114022500C71043 /* APIKeyFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */; };
-		404EBB9E21149BC500C25B13 /* MovieJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBB9D21149BC500C25B13 /* MovieJSONParser.swift */; };
 		404EBBA121149F2300C25B13 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA021149F2300C25B13 /* SearchAssembly.swift */; };
 		404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA32114B37400C25B13 /* SearchFactory.swift */; };
 		404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA52114D20300C25B13 /* MovieCell.swift */; };
@@ -79,7 +78,6 @@
 		40E483D521165AB200A8659B /* SuggestionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483D421165AB200A8659B /* SuggestionDataProvider.swift */; };
 		40E483D721166F3C00A8659B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E483D621166F3C00A8659B /* Helpers.swift */; };
 		40ECA864211486DE00164ADD /* MovieDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */; };
-		40ECA8672114971A00164ADD /* MovieParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8662114971A00164ADD /* MovieParser.swift */; };
 		40ECA8692114973C00164ADD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA8682114973C00164ADD /* Movie.swift */; };
 		40ECA86C211497A900164ADD /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECA86B211497A900164ADD /* MovieTests.swift */; };
 		40ECA86F21149A3F00164ADD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECA86E21149A3F00164ADD /* SwiftyJSON.framework */; };
@@ -136,7 +134,6 @@
 		4039F6072113F92A00C71043 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		4039F60B2114005100C71043 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyFetcherTests.swift; sourceTree = "<group>"; };
-		404EBB9D21149BC500C25B13 /* MovieJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieJSONParser.swift; sourceTree = "<group>"; };
 		404EBBA021149F2300C25B13 /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
 		404EBBA32114B37400C25B13 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
 		404EBBA52114D20300C25B13 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -182,7 +179,6 @@
 		40E483D421165AB200A8659B /* SuggestionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionDataProvider.swift; sourceTree = "<group>"; };
 		40E483D621166F3C00A8659B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		40ECA863211486DE00164ADD /* MovieDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataProviderTests.swift; sourceTree = "<group>"; };
-		40ECA8662114971A00164ADD /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		40ECA8682114973C00164ADD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		40ECA86B211497A900164ADD /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
 		40ECA86E21149A3F00164ADD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -568,8 +564,6 @@
 		40ECA865211496A100164ADD /* Translators */ = {
 			isa = PBXGroup;
 			children = (
-				40ECA8662114971A00164ADD /* MovieParser.swift */,
-				404EBB9D21149BC500C25B13 /* MovieJSONParser.swift */,
 				404EBBAF2114FB1F00C25B13 /* PageParser.swift */,
 			);
 			path = Translators;
@@ -752,7 +746,6 @@
 			files = (
 				40E483D521165AB200A8659B /* SuggestionDataProvider.swift in Sources */,
 				4039F5D62113779100C71043 /* Theme.swift in Sources */,
-				404EBB9E21149BC500C25B13 /* MovieJSONParser.swift in Sources */,
 				4039F5EC2113BC8900C71043 /* Dispatcher.swift in Sources */,
 				40E483D22116517500A8659B /* MovieSuggestionCell.swift in Sources */,
 				40E483CB21161C7B00A8659B /* Persistence.swift in Sources */,
@@ -793,7 +786,6 @@
 				40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */,
 				4039F5D821138D1A00C71043 /* BaseView.swift in Sources */,
 				40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */,
-				40ECA8672114971A00164ADD /* MovieParser.swift in Sources */,
 				404EBBAE2114F9EF00C25B13 /* Page.swift in Sources */,
 				4039F5E82113997200C71043 /* CustomTextField.swift in Sources */,
 			);

@@ -15,7 +15,7 @@ class SearchRequestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = SearchRequest(searchTerms: "avengers")
+        sut = SearchRequest(searchTerms: "avengers", page: 1)
     }
     
     func testSutHasCorrectPath() {

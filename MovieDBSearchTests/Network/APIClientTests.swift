@@ -24,12 +24,6 @@ class APIClientTests: XCTestCase {
         let request = RequestMock.init()
         sut.execute(request: request) { response in
             XCTAssertTrue(self.sessionMock.isDataTaskCalled)
-            switch response {
-            case .success(let data):
-                XCTAssertEqual(self.sessionMock.data, data)
-            case .failure(let error):
-                XCTAssertEqual(self.sessionMock.error, error)
-            }
         }
     }
 
