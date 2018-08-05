@@ -11,6 +11,7 @@ import UIKit
 final class SuggestionDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private let persistence: QueryPersistence
+    var didSelectSuggestion: (Query)->() = { _ in }
     
     var queries: [Query] { return persistence.retriveQueries() }
     
@@ -27,6 +28,10 @@ final class SuggestionDataProvider: NSObject, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: movieSuggestionCellIdentifier, for: indexPath) as! MovieSuggestionCell
         cell.suggestionLabel.text = query.keyword
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectSuggestion(queries[indexPath.row])
     }
     
     

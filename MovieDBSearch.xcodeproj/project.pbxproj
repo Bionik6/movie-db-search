@@ -575,8 +575,7 @@
 				404EBB9D21149BC500C25B13 /* MovieJSONParser.swift */,
 				404EBBAF2114FB1F00C25B13 /* PageParser.swift */,
 			);
-			name = Translators;
-			path = "New Group";
+			path = Translators;
 			sourceTree = "<group>";
 		};
 		40ECA86A2114979A00164ADD /* Models */ = {

@@ -31,7 +31,6 @@ final class SearchFactory {
                         if page.movies.count > 0 {
                             self.persistence.saveQuery(keyword: searchTerms)
                         }
-                        log.debug(self.persistence.retriveQueries())
                         completion(.success(page))
                     }
                 }

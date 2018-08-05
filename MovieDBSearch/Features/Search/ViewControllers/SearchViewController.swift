@@ -40,10 +40,9 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupRXObservers()
-        setupDataProvider()
+        setupDataProviders()
         setupMainTableViewDataSourceAndDelegate()
         setupSuggestionTableViewDataSourceAndDelegate()
-        searchView.hideSuggestionTableView()
     }
     
 }
@@ -69,11 +68,6 @@ extension SearchViewController {
     }
     
     fileprivate func setupRXObservers() {
-        searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
-            text.count > 0 ? self.searchView.showTopSearchButton() : self.searchView.hideTopSearchButton()
-            text.count > 0 ?  self.searchView.showCancelButton() : self.searchView.hideCancelButton()
-        }).disposed(by: disposeBag)
-        
         searchTextField?.rx.controlEvent([.editingDidBegin]).subscribe(onNext: { _ in
             self.suggestionDataProvider.queries.count > 0
                 ? self.searchView.showSuggestionTableView()
@@ -85,21 +79,16 @@ extension SearchViewController {
             self.dataProvider.makeSearch(for: keywords!)
             self.searchView.hideSuggestionTableView()
         }).disposed(by: disposeBag)
-        
-        searchView.bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
-            self.searchTextField?.becomeFirstResponder()
-        }).disposed(by: disposeBag)
-        
-        cancelButton?.rx.tap.asObservable().subscribe(onNext: { _ in
-            self.searchTextField?.text = nil
-            self.searchTextField?.resignFirstResponder()
-            self.searchView.hideSuggestionTableView()
-            self.searchView.hideTopSearchButton()
-        }).disposed(by: disposeBag)
     }
     
-    fileprivate func setupDataProvider() {
+    fileprivate func setupDataProviders() {
         dataProvider.delegate = self
+        suggestionDataProvider.didSelectSuggestion = { [weak self] suggestion in
+            self?.searchView.hideSuggestionTableView()
+            self?.dataProvider.makeSearch(for: suggestion.keyword)
+            self?.searchTextField?.text = nil
+            self?.searchTextField?.resignFirstResponder()
+        }
     }
     
 }

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 let movieCellIdentifier = "MovieCell"
 let movieLoadingCellIdentifier = "MovieLoadingCell"
 let movieSuggestionCellIdentifier = "MovieSuggestionCell"
 
+
 class SearchView: BaseView, XibInitializable {
+    
+    private let disposeBag = DisposeBag()
     
     @IBOutlet private(set) weak var topSearchButton: GradientButton!
     @IBOutlet private(set) weak var searchTextField: CustomTextField!
@@ -28,6 +32,7 @@ class SearchView: BaseView, XibInitializable {
     override func setupView() {
         hideTopSearchButton()
         setupMainTableView()
+        setupRXObservers()
         setupSuggestionTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -115,6 +120,27 @@ class SearchView: BaseView, XibInitializable {
                        options: .curveEaseIn,
                        animations: animations,
                        completion: nil)
+    }
+    
+    
+    fileprivate func setupRXObservers() {
+        searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
+            text.count > 0 ? self.showTopSearchButton() : self.hideTopSearchButton()
+            text.count > 0 ? self.showCancelButton() : self.hideCancelButton()
+            text.count > 0 ? self.showSuggestionTableView(): self.hideSuggestionTableView()
+        }).disposed(by: disposeBag)
+        
+        bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.becomeFirstResponder()
+        }).disposed(by: disposeBag)
+        
+        cancelButton?.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.text = nil
+            self.searchTextField?.resignFirstResponder()
+            self.hideSuggestionTableView()
+            self.hideTopSearchButton()
+            self.hideCancelButton()
+        }).disposed(by: disposeBag)
     }
     
 }
