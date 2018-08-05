@@ -18,8 +18,10 @@ class SearchView: BaseView, XibInitializable {
     @IBOutlet private(set) weak var searchTextField: CustomTextField!
     @IBOutlet private(set) weak var searchTextFieldTrailingConstraint: NSLayoutConstraint!
     @IBOutlet private(set) weak var bottomSearchButton: GradientButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var suggestionTableView: UITableView!
+    @IBOutlet private(set) weak var tableView: UITableView!
+    @IBOutlet private(set) weak var suggestionTableView: UITableView!
+    @IBOutlet private(set) weak var suggestionTableViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private(set) weak var cancelButton: UIButton!
     
     override func initializeView() { setupXib() }
     
@@ -27,6 +29,20 @@ class SearchView: BaseView, XibInitializable {
         hideTopSearchButton()
         setupMainTableView()
         setupSuggestionTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let targetFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardHeight: CGFloat = isIphoneXOrBigger ? -targetFrame.height + 34 : -targetFrame.height
+        suggestionTableViewBottomConstraint.constant = keyboardHeight
+        self.makeBasicAnimation { self.layoutIfNeeded() }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        suggestionTableViewBottomConstraint.constant = 0
+        self.makeBasicAnimation { self.layoutIfNeeded() }
     }
     
     private func setupMainTableView() {
@@ -48,37 +64,57 @@ class SearchView: BaseView, XibInitializable {
     
     func showTopSearchButton() {
         searchTextFieldTrailingConstraint.constant = 108
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
+        makeBasicAnimation {
             self.topSearchButton.transform = CGAffineTransform.identity
             self.layoutIfNeeded()
-        }, completion: nil)
+        }
     }
     
     func hideTopSearchButton() {
         searchTextFieldTrailingConstraint.constant = 8
+        makeBasicAnimation {
+            self.topSearchButton.transform = CGAffineTransform(scaleX: 0, y: 0)
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func showSuggestionTableView() {
+        suggestionTableView.reloadData()
+        makeBasicAnimation {
+            self.suggestionTableView.alpha = 1.0
+            self.suggestionTableView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func hideSuggestionTableView() {
+        makeBasicAnimation {
+            self.suggestionTableView.alpha = 0.0
+            self.suggestionTableView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        }
+    }
+    
+    func showCancelButton() {
+        makeBasicAnimation {
+            self.cancelButton.alpha = 1.0
+            self.cancelButton.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func hideCancelButton() {
+        makeBasicAnimation {
+            self.cancelButton.alpha = 0.0
+            self.cancelButton.transform = CGAffineTransform.identity
+        }
+    }
+    
+    private func makeBasicAnimation(animations: @escaping () -> ()) {
         UIView.animate(withDuration: 0.4,
                        delay: 0,
                        usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 1.0,
                        options: .curveEaseIn,
-                       animations: {
-                        self.topSearchButton.transform = CGAffineTransform(scaleX: 0, y: 0)
-                        self.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-    func showSuggestionTableView() {
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            self.suggestionTableView.alpha = 1.0
-            self.suggestionTableView.transform = CGAffineTransform.identity
-        }, completion: nil)
-    }
-    
-    func hideSuggestionTableView() {
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            self.suggestionTableView.alpha = 0.0
-            self.suggestionTableView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        }, completion: nil)
+                       animations: animations,
+                       completion: nil)
     }
     
 }

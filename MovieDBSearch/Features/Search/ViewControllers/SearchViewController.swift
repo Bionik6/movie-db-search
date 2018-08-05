@@ -18,6 +18,7 @@ final class SearchViewController: UIViewController {
     private(set) lazy var searchTextField = searchView.searchTextField
     private(set) lazy var tableView = searchView.tableView
     private(set) lazy var suggestionTableView = searchView.suggestionTableView
+    private lazy var cancelButton = searchView.cancelButton
     fileprivate var isSearching = false
     private let disposeBag = DisposeBag()
     
@@ -70,19 +71,30 @@ extension SearchViewController {
     fileprivate func setupRXObservers() {
         searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
             text.count > 0 ? self.searchView.showTopSearchButton() : self.searchView.hideTopSearchButton()
+            text.count > 0 ?  self.searchView.showCancelButton() : self.searchView.hideCancelButton()
         }).disposed(by: disposeBag)
+        
         searchTextField?.rx.controlEvent([.editingDidBegin]).subscribe(onNext: { _ in
             self.suggestionDataProvider.queries.count > 0
                 ? self.searchView.showSuggestionTableView()
                 : self.searchView.hideSuggestionTableView()
         }).disposed(by: disposeBag)
+        
         searchTextField?.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: { _ in
             let keywords = self.searchTextField?.text!
             self.dataProvider.makeSearch(for: keywords!)
             self.searchView.hideSuggestionTableView()
         }).disposed(by: disposeBag)
+        
         searchView.bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
             self.searchTextField?.becomeFirstResponder()
+        }).disposed(by: disposeBag)
+        
+        cancelButton?.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.text = nil
+            self.searchTextField?.resignFirstResponder()
+            self.searchView.hideSuggestionTableView()
+            self.searchView.hideTopSearchButton()
         }).disposed(by: disposeBag)
     }
     

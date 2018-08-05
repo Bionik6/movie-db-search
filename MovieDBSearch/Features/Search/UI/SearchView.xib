@@ -13,9 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="MovieDBSearch" customModuleProvider="target">
             <connections>
                 <outlet property="bottomSearchButton" destination="aAZ-fn-Yn9" id="4Y6-oK-BKR"/>
+                <outlet property="cancelButton" destination="Mk4-IJ-sUN" id="Z9Q-56-HVM"/>
                 <outlet property="searchTextField" destination="Nhn-Xc-6bV" id="JQr-sg-BQF"/>
                 <outlet property="searchTextFieldTrailingConstraint" destination="EHn-9L-fF4" id="vIQ-Ve-kAd"/>
                 <outlet property="suggestionTableView" destination="hGQ-tt-J3p" id="5tC-hG-2ey"/>
+                <outlet property="suggestionTableViewBottomConstraint" destination="8qK-zP-gdF" id="1i9-3c-KfN"/>
                 <outlet property="tableView" destination="Q8c-Xs-keq" id="AiB-EV-uJd"/>
                 <outlet property="topSearchButton" destination="e3X-2e-UNv" id="93F-gZ-FwK"/>
             </connections>
@@ -55,6 +57,14 @@
                     <rect key="frame" x="0.0" y="136" width="375" height="531"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hGQ-tt-J3p">
+                    <rect key="frame" x="0.0" y="136" width="375" height="531"/>
+                    <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-IJ-sUN">
+                    <rect key="frame" x="237" y="93" width="18" height="22"/>
+                    <state key="normal" image="icon_cancel"/>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAZ-fn-Yn9" customClass="GradientButton" customModule="MovieDBSearch" customModuleProvider="target">
                     <rect key="frame" x="311" y="603" width="48" height="48"/>
                     <constraints>
@@ -68,10 +78,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hGQ-tt-J3p">
-                    <rect key="frame" x="0.0" y="136" width="375" height="531"/>
-                    <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -81,9 +87,11 @@
                 <constraint firstItem="Nhn-Xc-6bV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="NkM-fM-5gH"/>
                 <constraint firstItem="Q8c-Xs-keq" firstAttribute="top" secondItem="Nhn-Xc-6bV" secondAttribute="bottom" constant="8" id="OvR-47-iCN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q8c-Xs-keq" secondAttribute="trailing" id="PUO-tb-Qf4"/>
+                <constraint firstItem="Mk4-IJ-sUN" firstAttribute="centerY" secondItem="Nhn-Xc-6bV" secondAttribute="centerY" id="RCQ-RR-jOI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aAZ-fn-Yn9" secondAttribute="bottom" constant="16" id="Ret-4k-dZE"/>
                 <constraint firstItem="e3X-2e-UNv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="XVd-wh-c6L"/>
                 <constraint firstItem="Nhn-Xc-6bV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="ZUb-5U-IzP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Mk4-IJ-sUN" secondAttribute="trailing" constant="120" id="bY8-k2-C2G"/>
                 <constraint firstItem="hGQ-tt-J3p" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="72" id="c9H-EM-ZBa"/>
                 <constraint firstItem="Q8c-Xs-keq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fN1-YB-b5c"/>
                 <constraint firstItem="hGQ-tt-J3p" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="h7x-Aq-Jgh"/>
@@ -97,6 +105,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_cancel" width="18" height="18"/>
         <image name="icon_search" width="20" height="20"/>
     </resources>
 </document>

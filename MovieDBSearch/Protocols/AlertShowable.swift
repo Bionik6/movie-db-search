@@ -20,7 +20,3 @@ extension AlertShowable where Self: UIViewController {
     }
     
 }
-
-func executeInMainThread(completion: @escaping ()->()) {
-    OperationQueue.main.addOperation { completion() }
-}
