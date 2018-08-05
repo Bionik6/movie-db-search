@@ -43,6 +43,7 @@ final class SearchViewController: UIViewController {
         setupDataProviders()
         setupMainTableViewDataSourceAndDelegate()
         setupSuggestionTableViewDataSourceAndDelegate()
+        searchView.hideSuggestionTableView()
     }
     
 }
@@ -75,10 +76,19 @@ extension SearchViewController {
         }).disposed(by: disposeBag)
         
         searchTextField?.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: { _ in
-            let keywords = self.searchTextField?.text!
-            self.dataProvider.makeSearch(for: keywords!)
-            self.searchView.hideSuggestionTableView()
+            self.makeSearch()
         }).disposed(by: disposeBag)
+        
+        searchView.topSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.makeSearch()
+        }).disposed(by: disposeBag)
+    }
+    
+    private func makeSearch() {
+        let keywords = self.searchTextField?.text!
+        searchView.hideSuggestionTableView()
+        dataProvider.makeSearch(for: keywords!)
+        self.searchTextField?.resignFirstResponder()
     }
     
     fileprivate func setupDataProviders() {

@@ -127,7 +127,6 @@ class SearchView: BaseView, XibInitializable {
         searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
             text.count > 0 ? self.showTopSearchButton() : self.hideTopSearchButton()
             text.count > 0 ? self.showCancelButton() : self.hideCancelButton()
-            text.count > 0 ? self.showSuggestionTableView(): self.hideSuggestionTableView()
         }).disposed(by: disposeBag)
         
         bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
