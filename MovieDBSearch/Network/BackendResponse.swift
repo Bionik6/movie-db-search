@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum ResponseError: Error {
     case noInternetConnection
     case unknown(message: String)

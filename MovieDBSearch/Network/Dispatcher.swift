@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Protocol for making network requests
 protocol Dispatcher: AnyObject {
     
     var baseURL: NSString { get set }

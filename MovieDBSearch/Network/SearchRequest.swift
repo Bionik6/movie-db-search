@@ -8,7 +8,9 @@
 
 import Foundation
 
-class SearchRequest: Request {
+
+/// Main object in charge of building a request for a search
+final class SearchRequest: Request {
     
     private var currentPage: Int
     private let searchTerms: String
