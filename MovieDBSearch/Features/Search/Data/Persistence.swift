@@ -10,39 +10,51 @@ import Foundation
 import SwiftyJSON
 
 
-protocol QueryPersistence {
-    func saveQuery(keyword: String)
-    func retriveQueries() -> [Query]
+/// Protocol for saving and retrieving suggestion
+/// no matter the persistence store used
+protocol SuggestionPersistence {
+    func saveSuggestion(keyword: String)
+    func retriveSuggestions() -> [Suggestion]
 }
 
 
-class DefaultQueryPersistence: QueryPersistence {
+/// Object for saving suggestion to disk based on
+/// NSKeyedArchiver and NSKeyedUnarchiver
+class DefaultSuggestionPersistence: SuggestionPersistence {
     
     private lazy var defaultManager = FileManager.default
     
+    /// Path of the suggestions file
     private var jsonURL: URL {
         let documentDirectoryUrl = defaultManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return documentDirectoryUrl.appendingPathComponent("Queries")
+        return documentDirectoryUrl.appendingPathComponent("suggestions")
     }
     
-    func saveQuery(keyword: String) {
-        let query = Query(keyword: keyword)
-        if var queries = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Query] {
-            //            let keywords = queries.compactMap { $0.keyword }
-            queries.append(query)
-            NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
-            //            if !keywords.contains(keyword) {
-            //                queries.append(query)
-            //                NSKeyedArchiver.archiveRootObject(queries, toFile: jsonURL.path)
-            //            }
-        } else {
-            NSKeyedArchiver.archiveRootObject([query], toFile: jsonURL.path)
+    /// Save the query to file if not present yet
+    ///
+    /// - Parameter keyword: The keyword used to build the query
+    func saveSuggestion(keyword: String) {
+        let suggestion = Suggestion(keyword: keyword)
+        // We check first if we already have a suggestion file
+        if var suggestions = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Suggestion] {
+            let keywords = suggestions.compactMap { $0.keyword }
+            // We check if we don't already save a query with
+            if !keywords.contains(keyword) {
+                suggestions.append(suggestion)
+                NSKeyedArchiver.archiveRootObject(suggestions, toFile: jsonURL.path)
+            }
+        } else { // Otherwise we create a new file with the suggestion within it
+            NSKeyedArchiver.archiveRootObject([suggestion], toFile: jsonURL.path)
         }
     }
     
-    func retriveQueries() -> [Query] {
-        guard let queries = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Query] else { return [] }
-        return queries
+    
+    /// Get the list of suggestions
+    ///
+    /// - Returns: The list of suggestions
+    func retriveSuggestions() -> [Suggestion] {
+        guard let suggestions = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Suggestion] else { return [] }
+        return suggestions.sorted(by: { $0.createdDate > $1.createdDate })
     }
     
 }

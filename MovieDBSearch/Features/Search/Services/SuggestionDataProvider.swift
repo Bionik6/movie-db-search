@@ -10,12 +10,12 @@ import UIKit
 
 final class SuggestionDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private let persistence: QueryPersistence
-    var didSelectSuggestion: (Query)->() = { _ in }
+    private let persistence: SuggestionPersistence
+    var didSelectSuggestion: (Suggestion)->() = { _ in }
     
-    var queries: [Query] { return persistence.retriveQueries() }
+    var queries: [Suggestion] { return persistence.retriveSuggestions() }
     
-    init(persistence: QueryPersistence) {
+    init(persistence: SuggestionPersistence) {
         self.persistence = persistence
     }
     

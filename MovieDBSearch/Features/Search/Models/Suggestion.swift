@@ -9,7 +9,7 @@
 import SwiftyJSON
 import Foundation
 
-class Query: NSObject, NSCoding {
+class Suggestion: NSObject, NSCoding {
     
     var keyword: String
     var createdDate: String

@@ -8,13 +8,14 @@
 
 import Foundation
 
+
 final class SearchFactory {
     
     fileprivate let parser: PageParser
     fileprivate let client: Dispatcher
-    fileprivate let persistence: QueryPersistence
+    fileprivate let persistence: SuggestionPersistence
     
-    init(client: Dispatcher, parser: PageParser, persistence: QueryPersistence) {
+    init(client: Dispatcher, parser: PageParser, persistence: SuggestionPersistence) {
         self.parser = parser
         self.client = client
         self.persistence = persistence
@@ -29,7 +30,7 @@ final class SearchFactory {
                     let page = self.parser.parse(data: data)
                     OperationQueue.main.addOperation {
                         if page.movies.count > 0 {
-                            self.persistence.saveQuery(keyword: searchTerms)
+                            self.persistence.saveSuggestion(keyword: searchTerms)
                         }
                         completion(.success(page))
                     }

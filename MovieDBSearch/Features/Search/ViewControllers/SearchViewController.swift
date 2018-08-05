@@ -28,7 +28,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var suggestionDataProvider: SuggestionDataProvider = {
-        let persistence = mainAssembler?.resolver.resolve(QueryPersistence.self)!
+        let persistence = mainAssembler?.resolver.resolve(SuggestionPersistence.self)!
         let provider = SuggestionDataProvider(persistence: persistence!)
         return provider
     }()

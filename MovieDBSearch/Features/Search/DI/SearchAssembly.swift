@@ -42,8 +42,8 @@ extension SearchAssembly {
     }
     
     fileprivate func registerQueryPersistence(container: Container) {
-        container.register(QueryPersistence.self, factory: { resolver in
-            let persistence = DefaultQueryPersistence()
+        container.register(SuggestionPersistence.self, factory: { resolver in
+            let persistence = DefaultSuggestionPersistence()
             return persistence
         })
     }
