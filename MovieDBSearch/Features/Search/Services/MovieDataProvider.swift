@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ibrahima Ciss. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Nuke
 
 
@@ -61,6 +61,7 @@ final class MovieDataProvider: NSObject {
         fetchMoviesForSearchTerms()
     }
     
+    
     func makeSearch(for keywords: String) {
         guard keywords != searchTerms else { return }
         currentPage = 1
@@ -69,6 +70,11 @@ final class MovieDataProvider: NSObject {
         fetchMoviesForSearchTerms()
     }
     
+    
+    /// Build Nuke image requests for preheating
+    ///
+    /// - Parameter indexPaths: The next indexpaths to show
+    /// - Returns: Array of Nuke Image requests
     func imageRequests(indexPaths: [IndexPath]) -> [Nuke.ImageRequest] {
         let movies: [Movie] = indexPaths.compactMap { indexPath in
             guard indexPath.item < self.movies.count else { return nil }

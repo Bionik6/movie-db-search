@@ -23,11 +23,12 @@ extension MoviePresenter {
     
     func configure(with cell: MovieCell) {
         if let url = URL(string: movie.fullPosterPath) {
-            let options = ImageLoadingOptions(placeholder: #imageLiteral(resourceName: "poster_placeholder"), transition: ImageLoadingOptions.Transition.fadeIn(duration: 0.40))
+            let options = ImageLoadingOptions(placeholder: #imageLiteral(resourceName: "poster_placeholder"), transition: .fadeIn(duration: 0.40))
             Nuke.loadImage(with: url, options: options, into: cell.posterimageView)
         }
         cell.overviewLabel.text = movie.overview
         cell.titleLabel.text = movie.name
-        cell.releaseDateLabel.text = movie.releaseDate
+        cell.releaseDateLabel.text = "Release Date \(movie.releaseDate)"
     }
+    
 }
