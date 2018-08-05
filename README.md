@@ -6,10 +6,16 @@ iOS App for searching movies
 
 ## How to run the project ##
 
-1.Download the project folder or clone it 
+1. Download the project folder or clone it 
 2. Go to the project folder and install all the dependencies through [Carthage](https://github.com/Carthage/Carthage)
 3. Run *carthage update --no-use-binaries --platform iOS* in order to install all the dependencies 
 4. Build, Run & Enjoy 
+
+
+## Design Consideration ##
+- MVC done right (I hope 😅)
+- SOLID Principles
+- Protocol Oriented Programming
 
 
 ## Libraries Used ##
