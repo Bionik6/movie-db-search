@@ -9,6 +9,7 @@
 import Foundation
 
 
+/// Object responnsible for making network call, parsing and saving data
 final class SearchFactory {
     
     fileprivate let parser: PageParser
@@ -21,6 +22,13 @@ final class SearchFactory {
         self.persistence = persistence
     }
     
+    
+    /// Fetch movies based on the keyword and save the keyword as suggestion
+    ///
+    /// - Parameters:
+    ///   - searchTerms: The keyword when searching
+    ///   - page: The page we want to retrieve moviess
+    ///   - completion: The block to be executed after we get a response
     func fetchMovies(for searchTerms: String, page: Int, completion: @escaping (BackendResponse<Page>)->()) {
         let request = SearchRequest(searchTerms: searchTerms, page: page)
         client.execute(request: request) { response in

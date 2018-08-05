@@ -15,7 +15,7 @@ final class SearchAssembly: Assembly {
         registerParser(container: container)
         registerDisPatcher(container: container)
         registerPageParser(container: container)
-        registerQueryPersistence(container: container)
+        registerSuggestionPersistence(container: container)
     }
 }
 
@@ -41,7 +41,7 @@ extension SearchAssembly {
         })
     }
     
-    fileprivate func registerQueryPersistence(container: Container) {
+    fileprivate func registerSuggestionPersistence(container: Container) {
         container.register(SuggestionPersistence.self, factory: { resolver in
             let persistence = DefaultSuggestionPersistence()
             return persistence
