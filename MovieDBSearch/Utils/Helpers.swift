@@ -12,6 +12,10 @@ var isIphoneXOrBigger: Bool {
     return UIScreen.main.bounds.height >= 812
 }
 
+
+/// Helper Method for executing task in the main Thread
+///
+/// - Parameter completion: The block to be executed in the Main Thread
 func executeInMainThread(completion: @escaping ()->()) {
     OperationQueue.main.addOperation { completion() }
 }

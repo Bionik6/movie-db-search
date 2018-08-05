@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public enum Theme {
     
     public static var navBarAppearance: UINavigationBar { return UINavigationBar.appearance() }
