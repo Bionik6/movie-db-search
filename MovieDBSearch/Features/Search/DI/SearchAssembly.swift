@@ -9,7 +9,6 @@
 import Swinject
 
 
-
 /// Assemble our assemblies in the container
 final class SearchAssembly: Assembly {
     
@@ -20,6 +19,7 @@ final class SearchAssembly: Assembly {
     func assemble(container: Container) {
         registerDisPatcher(container: container)
         registerPageParser(container: container)
+        registerSearchFactory(container: container)
         registerSuggestionPersistence(container: container)
     }
 }
@@ -44,6 +44,16 @@ extension SearchAssembly {
         container.register(SuggestionPersistence.self, factory: { resolver in
             let persistence = DefaultSuggestionPersistence()
             return persistence
+        })
+    }
+    
+    fileprivate func registerSearchFactory(container: Container) {
+        container.register(SearchFactory.self, factory: { resolver in
+            let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
+            let parser = mainAssembler?.resolver.resolve(PageParser.self)!
+            let persistence = mainAssembler?.resolver.resolve(SuggestionPersistence.self)!
+            let factory = SearchFactory(client: client!, parser: parser!, persistence: persistence!)
+            return factory
         })
     }
     

@@ -11,24 +11,6 @@ import UIKit
 import DZNEmptyDataSet
 
 
-// MARK: - UITableViewDataSourcePrefetching
-extension SearchViewController: UITableViewDataSourcePrefetching {
-    
-    private var preheater: ImagePreheater { return Nuke.ImagePreheater.init() }
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        let requests = movieDataProvider.imageRequests(indexPaths: indexPaths)
-        preheater.startPreheating(with: requests)
-    }
-    
-    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        let requests = movieDataProvider.imageRequests(indexPaths: indexPaths)
-        preheater.stopPreheating(with: requests)
-    }
-
-}
-
-
 // MARK: - MovieDataProviderDelegate
 extension SearchViewController: MovieDataProviderDelegate, AlertShowable, HudDisplayable {
     
@@ -51,6 +33,24 @@ extension SearchViewController: MovieDataProviderDelegate, AlertShowable, HudDis
         isLoadingMovies ? showHUD(title: title, message: message) : hideHUD()
     }
     
+}
+
+
+// MARK: - UITableViewDataSourcePrefetching
+extension SearchViewController: UITableViewDataSourcePrefetching {
+    
+    private var preheater: ImagePreheater { return Nuke.ImagePreheater.init() }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        let requests = movieDataProvider.imageRequests(indexPaths: indexPaths)
+        preheater.startPreheating(with: requests)
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        let requests = movieDataProvider.imageRequests(indexPaths: indexPaths)
+        preheater.stopPreheating(with: requests)
+    }
+
 }
 
 

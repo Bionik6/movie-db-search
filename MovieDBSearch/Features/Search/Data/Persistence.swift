@@ -38,7 +38,7 @@ class DefaultSuggestionPersistence: SuggestionPersistence {
         // We check first if we already have a suggestion file
         if var suggestions = NSKeyedUnarchiver.unarchiveObject(withFile: jsonURL.path) as? [Suggestion] {
             let keywords = suggestions.compactMap { $0.keyword }
-            // We check if we don't already save a query with
+            // We check if we don't already have saved the keyword in our suggestions
             if !keywords.contains(keyword) {
                 suggestions.append(suggestion)
                 NSKeyedArchiver.archiveRootObject(suggestions, toFile: jsonURL.path)

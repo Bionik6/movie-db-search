@@ -15,19 +15,42 @@ class MovieDataProviderTests: XCTestCase {
     private var client: Dispatcher!
     private var session: URLSessionMock!
     
+    private let movies = [Movie.init(name: "Avengers 1", posterURL: "", releaseDate: "", overview: ""),
+                          Movie.init(name: "Avengers 2", posterURL: "", releaseDate: "", overview: ""),
+                          Movie.init(name: "Avengers 3", posterURL: "", releaseDate: "", overview: "")]
+    
     override func setUp() {
         super.setUp()
         session = URLSessionMock()
         client = DispatcherMock(session: session)
-        sut = MovieDataProvider.init()
+        let factory = mainAssembler?.resolver.resolve(SearchFactory.self)!
+        sut = MovieDataProvider.init(factory: factory!)
+        sut.movies = movies
     }
     
+    func testIsLoadingIndexPath() {
+        sut.shouldShowLoadingCell = true
+        let indexPath = IndexPath(row: 3, section: 0)
+        XCTAssertTrue(sut.isLoadingIndexPath(indexPath))
+    }
     
-    func testFetchMovies() {
-        sut.factory.fetchMovies(for: "toto", page: 1) { response in
-            XCTAssertTrue(self.session.isDataTaskCalled)
-        }
+    func testFetchNextPage() {
+        XCTAssertEqual(sut.currentPage, 1)
+        sut.fetchNextPage()
+        XCTAssertEqual(sut.currentPage, 2)
+        sut.fetchNextPage()
+        XCTAssertEqual(sut.currentPage, 3)
+    }
+    
+    func testMakeSearch() {
+        var keyword = ""
+        sut.makeSearch(for: keyword)
+        XCTAssertEqual(sut.movies.count, 3)
         
+        keyword = "spiderman"
+        sut.makeSearch(for: keyword)
+        XCTAssertEqual(sut.movies.count, 0)
+        XCTAssertEqual(sut.searchTerms, keyword)
     }
     
     

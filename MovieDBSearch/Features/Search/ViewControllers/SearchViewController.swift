@@ -23,7 +23,8 @@ final class SearchViewController: UIViewController {
     var isSearching = false
     
     lazy var movieDataProvider: MovieDataProvider = {
-        let provider = MovieDataProvider.init()
+        let factory = mainAssembler?.resolver.resolve(SearchFactory.self)!
+        let provider = MovieDataProvider.init(factory: factory!)
         return provider
     }()
     
@@ -70,7 +71,7 @@ extension SearchViewController {
     
     fileprivate func setupRXObservers() {
         searchTextField?.rx.controlEvent([.editingDidBegin]).subscribe(onNext: { _ in
-            self.suggestionDataProvider.queries.count > 0
+            self.suggestionDataProvider.suggestions.count > 0
                 ? self.searchView.showSuggestionTableView()
                 : self.searchView.hideSuggestionTableView()
         }).disposed(by: disposeBag)

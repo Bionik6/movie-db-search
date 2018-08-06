@@ -24,7 +24,6 @@ final class MoviePresenter {
 
 extension MoviePresenter {
     
-    
     /// Configure a Movie cell to be presented
     ///
     /// - Parameter cell: The Movie Cell to present based on the movie object

@@ -22,7 +22,6 @@ final class SearchFactory {
         self.persistence = persistence
     }
     
-    
     /// Fetch movies based on the keyword and save the keyword as suggestion
     ///
     /// - Parameters:
@@ -36,15 +35,13 @@ final class SearchFactory {
             case .success(let data):
                 if let data = data {
                     let page = self.parser.parse(data: data)
-                    OperationQueue.main.addOperation {
-                        if page.movies.count > 0 {
-                            self.persistence.saveSuggestion(keyword: searchTerms)
-                        }
+                    executeInMainThread {
+                        if page.movies.count > 0 { self.persistence.saveSuggestion(keyword: searchTerms) }
                         completion(.success(page))
                     }
                 }
             case .failure(let error):
-                OperationQueue.main.addOperation { completion(.failure(error)) }
+                executeInMainThread { completion(.failure(error)) }
             }
         }
     }

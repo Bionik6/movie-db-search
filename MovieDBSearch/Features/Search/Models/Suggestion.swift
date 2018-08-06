@@ -9,6 +9,7 @@
 import SwiftyJSON
 import Foundation
 
+
 class Suggestion: NSObject, NSCoding {
     
     var keyword: String

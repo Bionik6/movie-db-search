@@ -6,8 +6,8 @@
 //  Copyright © 2018 Ibrahima Ciss. All rights reserved.
 //
 
-import Foundation
 import Nuke
+import Foundation
 
 
 protocol MovieDataProviderDelegate: AnyObject {
@@ -19,26 +19,34 @@ protocol MovieDataProviderDelegate: AnyObject {
 
 final class MovieDataProvider: NSObject {
     
+    // MARK: - Properties
+    private let factory: SearchFactory
     var isSearching = false
     var movies: [Movie] = []
     var shouldShowLoadingCell = false
     weak var delegate: MovieDataProviderDelegate?
     
-    private var searchTerms = ""
-    private var currentPage = 1
+    private(set) var searchTerms = ""
+    private(set) var currentPage = 1
     
-    private(set) lazy var factory: SearchFactory = {
-        let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
-        let parser = mainAssembler?.resolver.resolve(PageParser.self)!
-        let persistence = mainAssembler?.resolver.resolve(SuggestionPersistence.self)!
-        return SearchFactory(client: client!, parser: parser!, persistence: persistence!)
-    }()
+    // MARK: - Initialization
+    init(factory: SearchFactory) {
+        self.factory = factory
+    }
+
+}
+
+
+// MARK: - Fetching Movies
+extension MovieDataProvider {
     
-    func fetchMoviesForSearchTerms() {
-        if currentPage == 1 {
+    /// Fetching movies based on the keywords the user enters
+    private func fetchMoviesForSearchTerms() {
+        if currentPage == 1 { // Alert the delegate to show the HUD when the current page is 1
             delegate?.movieDataProvider(self, isLoadingMovies: true)
         }
         factory.fetchMovies(for: searchTerms, page: currentPage) { response in
+            // Alert the delegate to hide the HUD when we get a response
             self.delegate?.movieDataProvider(self, isLoadingMovies: false)
             switch response {
             case .success(let page):
@@ -51,19 +59,27 @@ final class MovieDataProvider: NSObject {
         }
     }
     
+    /// Check if we're loading a given IndexPath
+    ///
+    /// - Parameter indexPath: The IndexPath to be compared with the total number of movies
+    /// - Returns: Boolean telling if we're loading or not
     func isLoadingIndexPath(_ indexPath: IndexPath) -> Bool {
         guard shouldShowLoadingCell else { return false }
-        return indexPath.item == self.movies.count
+        return indexPath.row == movies.count
     }
     
+    /// Fetch the next page if available
     func fetchNextPage() {
         currentPage += 1
         fetchMoviesForSearchTerms()
     }
     
-    
+    /// Make a new search and returns the response
+    ///
+    /// - Parameter keywords: The search terms
     func makeSearch(for keywords: String) {
-        guard keywords != searchTerms else { return }
+        // Check first if we make a new search, otherwise just exit
+        guard keywords != searchTerms, keywords.count > 0 else { return }
         currentPage = 1
         movies = []
         searchTerms = keywords

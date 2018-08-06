@@ -10,7 +10,7 @@ import UIKit
 
 class MovieSuggestionCell: UITableViewCell {
 
-    @IBOutlet weak var suggestionLabel: UILabel!
+    @IBOutlet private(set) weak var suggestionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

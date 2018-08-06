@@ -91,13 +91,6 @@
 			remoteGlobalIDString = 40C8ED222111C72F00A3F2E2;
 			remoteInfo = MovieDBSearch;
 		};
-		40C8ED432111C73200A3F2E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40C8ED1B2111C72F00A3F2E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 40C8ED222111C72F00A3F2E2;
-			remoteInfo = MovieDBSearch;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -149,7 +142,6 @@
 		40C8ED372111C73200A3F2E2 /* MovieDBSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBSearchTests.swift; sourceTree = "<group>"; };
 		40C8ED3D2111C73200A3F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40C8ED422111C73200A3F2E2 /* MovieDBSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8ED602111CE9C00A3F2E2 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		40C8ED642111D8DF00A3F2E2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		40C8ED662111D8ED00A3F2E2 /* HTTPMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethodTests.swift; sourceTree = "<group>"; };
@@ -198,13 +190,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		40C8ED342111C73200A3F2E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40C8ED3F2111C73200A3F2E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,7 +333,6 @@
 			children = (
 				40C8ED232111C72F00A3F2E2 /* MovieDBSearch.app */,
 				40C8ED372111C73200A3F2E2 /* MovieDBSearchTests.xctest */,
-				40C8ED422111C73200A3F2E2 /* MovieDBSearchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -610,24 +594,6 @@
 			productReference = 40C8ED372111C73200A3F2E2 /* MovieDBSearchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		40C8ED412111C73200A3F2E2 /* MovieDBSearchUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 40C8ED512111C73200A3F2E2 /* Build configuration list for PBXNativeTarget "MovieDBSearchUITests" */;
-			buildPhases = (
-				40C8ED3E2111C73200A3F2E2 /* Sources */,
-				40C8ED3F2111C73200A3F2E2 /* Frameworks */,
-				40C8ED402111C73200A3F2E2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				40C8ED442111C73200A3F2E2 /* PBXTargetDependency */,
-			);
-			name = MovieDBSearchUITests;
-			productName = MovieDBSearchUITests;
-			productReference = 40C8ED422111C73200A3F2E2 /* MovieDBSearchUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -642,10 +608,6 @@
 						CreatedOnToolsVersion = 9.4;
 					};
 					40C8ED362111C73200A3F2E2 = {
-						CreatedOnToolsVersion = 9.4;
-						TestTargetID = 40C8ED222111C72F00A3F2E2;
-					};
-					40C8ED412111C73200A3F2E2 = {
 						CreatedOnToolsVersion = 9.4;
 						TestTargetID = 40C8ED222111C72F00A3F2E2;
 					};
@@ -666,7 +628,6 @@
 			targets = (
 				40C8ED222111C72F00A3F2E2 /* MovieDBSearch */,
 				40C8ED362111C73200A3F2E2 /* MovieDBSearchTests */,
-				40C8ED412111C73200A3F2E2 /* MovieDBSearchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -687,13 +648,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		40C8ED352111C73200A3F2E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40C8ED402111C73200A3F2E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -801,13 +755,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		40C8ED3E2111C73200A3F2E2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -815,11 +762,6 @@
 			isa = PBXTargetDependency;
 			target = 40C8ED222111C72F00A3F2E2 /* MovieDBSearch */;
 			targetProxy = 40C8ED382111C73200A3F2E2 /* PBXContainerItemProxy */;
-		};
-		40C8ED442111C73200A3F2E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 40C8ED222111C72F00A3F2E2 /* MovieDBSearch */;
-			targetProxy = 40C8ED432111C73200A3F2E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1037,46 +979,6 @@
 			};
 			name = Release;
 		};
-		40C8ED522111C73200A3F2E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				INFOPLIST_FILE = MovieDBSearchUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kreativelab.co.MovieDBSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MovieDBSearch;
-			};
-			name = Debug;
-		};
-		40C8ED532111C73200A3F2E2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				INFOPLIST_FILE = MovieDBSearchUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kreativelab.co.MovieDBSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MovieDBSearch;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1103,15 +1005,6 @@
 			buildConfigurations = (
 				40C8ED4F2111C73200A3F2E2 /* Debug */,
 				40C8ED502111C73200A3F2E2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		40C8ED512111C73200A3F2E2 /* Build configuration list for PBXNativeTarget "MovieDBSearchUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				40C8ED522111C73200A3F2E2 /* Debug */,
-				40C8ED532111C73200A3F2E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

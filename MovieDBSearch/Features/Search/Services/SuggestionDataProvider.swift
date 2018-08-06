@@ -8,31 +8,38 @@
 
 import UIKit
 
-final class SuggestionDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
+
+final class SuggestionDataProvider: NSObject {
     
+    // MARK: - Properties
     private let persistence: SuggestionPersistence
     var didSelectSuggestion: (Suggestion)->() = { _ in }
+    var suggestions: [Suggestion] { return persistence.retriveSuggestions() }
     
-    var queries: [Suggestion] { return persistence.retriveSuggestions() }
-    
+    // MARK: - Initialization
     init(persistence: SuggestionPersistence) {
         self.persistence = persistence
     }
     
+}
+
+
+// MARK: - UITableViewDataSource
+extension SuggestionDataProvider: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return queries.count
+        return suggestions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let query = queries[indexPath.row]
+        let suggestion = suggestions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: movieSuggestionCellIdentifier, for: indexPath) as! MovieSuggestionCell
-        cell.suggestionLabel.text = query.keyword
+        cell.suggestionLabel.text = suggestion.keyword
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectSuggestion(queries[indexPath.row])
+        didSelectSuggestion(suggestions[indexPath.row])
     }
-    
     
 }
