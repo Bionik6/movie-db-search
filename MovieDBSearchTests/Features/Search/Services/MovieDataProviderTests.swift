@@ -23,8 +23,8 @@ class MovieDataProviderTests: XCTestCase {
         super.setUp()
         session = URLSessionMock()
         client = DispatcherMock(session: session)
-        let factory = mainAssembler?.resolver.resolve(SearchFactory.self)!
-        sut = MovieDataProvider.init(factory: factory!)
+        let service = mainAssembler?.resolver.resolve(SearchService.self)!
+        sut = MovieDataProvider.init(searchService: service!)
         sut.movies = movies
     }
     

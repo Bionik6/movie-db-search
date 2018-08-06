@@ -16,6 +16,7 @@ let movieSuggestionCellIdentifier = "MovieSuggestionCell"
 
 class SearchView: BaseView, XibInitializable {
     
+    // MARK: - Properties
     private let disposeBag = DisposeBag()
     
     @IBOutlet private(set) weak var topSearchButton: GradientButton!
@@ -27,6 +28,7 @@ class SearchView: BaseView, XibInitializable {
     @IBOutlet private(set) weak var suggestionTableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private(set) weak var cancelButton: UIButton!
     
+    // MARK: - View Initialization
     override func initializeView() { setupXib() }
     
     override func setupView() {
@@ -34,20 +36,32 @@ class SearchView: BaseView, XibInitializable {
         setupMainTableView()
         setupRXObservers()
         setupSuggestionTableView()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        setupKeyboardObservers()
+        hideSuggestionTableView()
     }
+}
+
+
+// MARK: - View Setup and reveal/hide subviews with animation
+extension SearchView {
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let targetFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardHeight: CGFloat = isIphoneXOrBigger ? -targetFrame.height + 34 : -targetFrame.height
-        suggestionTableViewBottomConstraint.constant = keyboardHeight
-        self.makeBasicAnimation { self.layoutIfNeeded() }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        suggestionTableViewBottomConstraint.constant = 0
-        self.makeBasicAnimation { self.layoutIfNeeded() }
+    private func setupRXObservers() {
+        searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
+            text.count > 0 ? self.showTopSearchButton() : self.hideTopSearchButton()
+            text.count > 0 ? self.showCancelButton() : self.hideCancelButton()
+        }).disposed(by: disposeBag)
+        
+        bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.becomeFirstResponder()
+        }).disposed(by: disposeBag)
+        
+        cancelButton?.rx.tap.asObservable().subscribe(onNext: { _ in
+            self.searchTextField?.text = nil
+            self.searchTextField?.resignFirstResponder()
+            self.hideSuggestionTableView()
+            self.hideTopSearchButton()
+            self.hideCancelButton()
+        }).disposed(by: disposeBag)
     }
     
     private func setupMainTableView() {
@@ -122,24 +136,26 @@ class SearchView: BaseView, XibInitializable {
                        completion: nil)
     }
     
+}
+
+
+// MARK: - Keyboard Observers
+extension SearchView {
     
-    fileprivate func setupRXObservers() {
-        searchTextField?.rx.text.orEmpty.asObservable().subscribe(onNext: { text in
-            text.count > 0 ? self.showTopSearchButton() : self.hideTopSearchButton()
-            text.count > 0 ? self.showCancelButton() : self.hideCancelButton()
-        }).disposed(by: disposeBag)
-        
-        bottomSearchButton.rx.tap.asObservable().subscribe(onNext: { _ in
-            self.searchTextField?.becomeFirstResponder()
-        }).disposed(by: disposeBag)
-        
-        cancelButton?.rx.tap.asObservable().subscribe(onNext: { _ in
-            self.searchTextField?.text = nil
-            self.searchTextField?.resignFirstResponder()
-            self.hideSuggestionTableView()
-            self.hideTopSearchButton()
-            self.hideCancelButton()
-        }).disposed(by: disposeBag)
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        let targetFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardHeight: CGFloat = isIphoneXOrBigger ? -targetFrame.height + 34 : -targetFrame.height
+        suggestionTableViewBottomConstraint.constant = keyboardHeight
+        self.makeBasicAnimation { self.layoutIfNeeded() }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        suggestionTableViewBottomConstraint.constant = 0
+        self.makeBasicAnimation { self.layoutIfNeeded() }
+    }
 }

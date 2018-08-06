@@ -22,9 +22,9 @@ final class SearchViewController: UIViewController {
     
     var isSearching = false
     
-    lazy var movieDataProvider: MovieDataProvider = {
-        let factory = mainAssembler?.resolver.resolve(SearchFactory.self)!
-        let provider = MovieDataProvider.init(factory: factory!)
+    private(set) lazy var movieDataProvider: MovieDataProvider = {
+        let service = mainAssembler?.resolver.resolve(SearchService.self)!
+        let provider = MovieDataProvider.init(searchService: service!)
         return provider
     }()
     
@@ -44,7 +44,6 @@ final class SearchViewController: UIViewController {
         setupDataProviders()
         setupMainTableViewDataSourceAndDelegate()
         setupSuggestionTableViewDataSourceAndDelegate()
-        searchView.hideSuggestionTableView()
     }
     
 }
@@ -53,23 +52,23 @@ final class SearchViewController: UIViewController {
 // MARK: - View Setup
 extension SearchViewController {
     
-    fileprivate func setupView() {
+    private func setupView() {
         title = "MOVIE DB Search"
     }
     
-    fileprivate func setupMainTableViewDataSourceAndDelegate() {
+    private func setupMainTableViewDataSourceAndDelegate() {
         tableView?.dataSource = movieDataProvider
         tableView?.delegate = movieDataProvider
         tableView?.emptyDataSetSource = self
         if #available(iOS 10.0, *) { tableView?.prefetchDataSource = self }
     }
     
-    fileprivate func setupSuggestionTableViewDataSourceAndDelegate() {
+    private func setupSuggestionTableViewDataSourceAndDelegate() {
         suggestionTableView?.dataSource = suggestionDataProvider
         suggestionTableView?.delegate = suggestionDataProvider
     }
     
-    fileprivate func setupRXObservers() {
+    private func setupRXObservers() {
         searchTextField?.rx.controlEvent([.editingDidBegin]).subscribe(onNext: { _ in
             self.suggestionDataProvider.suggestions.count > 0
                 ? self.searchView.showSuggestionTableView()
@@ -92,7 +91,7 @@ extension SearchViewController {
         self.searchTextField?.resignFirstResponder()
     }
     
-    fileprivate func setupDataProviders() {
+    private func setupDataProviders() {
         movieDataProvider.delegate = self
         suggestionDataProvider.didSelectSuggestion = { [weak self] suggestion in
             self?.searchView.hideSuggestionTableView()

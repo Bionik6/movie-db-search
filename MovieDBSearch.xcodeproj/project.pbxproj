@@ -40,7 +40,7 @@
 		4039F60C2114005100C71043 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4039F60B2114005100C71043 /* APIKey.plist */; };
 		4039F60E2114022500C71043 /* APIKeyFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */; };
 		404EBBA121149F2300C25B13 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA021149F2300C25B13 /* SearchAssembly.swift */; };
-		404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA32114B37400C25B13 /* SearchFactory.swift */; };
+		404EBBA42114B37400C25B13 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA32114B37400C25B13 /* SearchService.swift */; };
 		404EBBA72114D20300C25B13 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBA52114D20300C25B13 /* MovieCell.swift */; };
 		404EBBA82114D20300C25B13 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404EBBA62114D20300C25B13 /* MovieCell.xib */; };
 		404EBBAC2114EB9100C25B13 /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBBAB2114EB9100C25B13 /* MoviePresenter.swift */; };
@@ -126,7 +126,7 @@
 		4039F60B2114005100C71043 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		4039F60D2114022500C71043 /* APIKeyFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyFetcherTests.swift; sourceTree = "<group>"; };
 		404EBBA021149F2300C25B13 /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
-		404EBBA32114B37400C25B13 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
+		404EBBA32114B37400C25B13 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		404EBBA52114D20300C25B13 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		404EBBA62114D20300C25B13 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		404EBBAB2114EB9100C25B13 /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 		404EBBA22114B30F00C25B13 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				404EBBA32114B37400C25B13 /* SearchFactory.swift */,
+				404EBBA32114B37400C25B13 /* SearchService.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -709,7 +709,7 @@
 				4039F6082113F92A00C71043 /* SearchRequest.swift in Sources */,
 				40E483BC2115EFD700A8659B /* AlertShowable.swift in Sources */,
 				40ECA8692114973C00164ADD /* Movie.swift in Sources */,
-				404EBBA42114B37400C25B13 /* SearchFactory.swift in Sources */,
+				404EBBA42114B37400C25B13 /* SearchService.swift in Sources */,
 				40E483C82116102100A8659B /* SearchViewController+Delegates.swift in Sources */,
 				4039F6062113EFA000C71043 /* APIKeyFetcher.swift in Sources */,
 				40E483B32115BCEA00A8659B /* MovieLoadingCell.swift in Sources */,

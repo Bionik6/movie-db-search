@@ -6,9 +6,6 @@
 //  Copyright © 2018 Ibrahima Ciss. All rights reserved.
 //
 
-import Foundation
-
-
 enum EmptyViewState {
     case notSearching
     case noMoviesFound

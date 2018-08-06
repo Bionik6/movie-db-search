@@ -49,9 +49,9 @@ extension MoviePresenter {
                                           NSAttributedStringKey.foregroundColor: Theme.Colors.halfWhite.value]
         let attributedText = NSMutableAttributedString(string: "Release Date: ", attributes: releaseDateStringAttribute)
         
-        let releaseDateStringValue = [NSAttributedStringKey.font: Theme.Fonts.avenirNextMedium(size: 14).value,
-                                          NSAttributedStringKey.foregroundColor: Theme.Colors.white.value]
-        attributedText.append(NSAttributedString(string: releaseDateFormated, attributes: releaseDateStringValue))
+        let releaseDateStringValueAttribute = [NSAttributedStringKey.font: Theme.Fonts.avenirNextMedium(size: 14).value,
+                                               NSAttributedStringKey.foregroundColor: Theme.Colors.white.value]
+        attributedText.append(NSAttributedString(string: releaseDateFormated, attributes: releaseDateStringValueAttribute))
         
         return attributedText
     }

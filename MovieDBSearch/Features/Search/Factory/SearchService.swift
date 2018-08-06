@@ -1,26 +1,32 @@
 //
-//  SearchFactory.swift
+//  SearchService.swift
 //  MovieDBSearch
 //
 //  Created by Ibrahima Ciss on 8/3/18.
 //  Copyright © 2018 Ibrahima Ciss. All rights reserved.
 //
 
-import Foundation
-
 
 /// Object responnsible for making network call, parsing and saving data
-final class SearchFactory {
+final class SearchService {
     
-    fileprivate let parser: PageParser
-    fileprivate let client: Dispatcher
-    fileprivate let persistence: SuggestionPersistence
+    // MARK: - Properties
+    private let parser: PageParser
+    private let client: Dispatcher
+    private let persistence: SuggestionPersistence
     
+    // MARK: - Initialization
     init(client: Dispatcher, parser: PageParser, persistence: SuggestionPersistence) {
         self.parser = parser
         self.client = client
         self.persistence = persistence
     }
+
+}
+
+
+// MARK: - Movies Fetching
+extension SearchService {
     
     /// Fetch movies based on the keyword and save the keyword as suggestion
     ///

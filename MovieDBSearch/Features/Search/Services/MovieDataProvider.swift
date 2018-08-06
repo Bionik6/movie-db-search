@@ -20,7 +20,7 @@ protocol MovieDataProviderDelegate: AnyObject {
 final class MovieDataProvider: NSObject {
     
     // MARK: - Properties
-    private let factory: SearchFactory
+    private let searchService: SearchService
     var isSearching = false
     var movies: [Movie] = []
     var shouldShowLoadingCell = false
@@ -30,8 +30,8 @@ final class MovieDataProvider: NSObject {
     private(set) var currentPage = 1
     
     // MARK: - Initialization
-    init(factory: SearchFactory) {
-        self.factory = factory
+    init(searchService: SearchService) {
+        self.searchService = searchService
     }
 
 }
@@ -45,7 +45,7 @@ extension MovieDataProvider {
         if currentPage == 1 { // Alert the delegate to show the HUD when the current page is 1
             delegate?.movieDataProvider(self, isLoadingMovies: true)
         }
-        factory.fetchMovies(for: searchTerms, page: currentPage) { response in
+        searchService.fetchMovies(for: searchTerms, page: currentPage) { response in
             // Alert the delegate to hide the HUD when we get a response
             self.delegate?.movieDataProvider(self, isLoadingMovies: false)
             switch response {

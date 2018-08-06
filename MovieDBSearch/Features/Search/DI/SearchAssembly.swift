@@ -19,7 +19,7 @@ final class SearchAssembly: Assembly {
     func assemble(container: Container) {
         registerDisPatcher(container: container)
         registerPageParser(container: container)
-        registerSearchFactory(container: container)
+        registerSearchService(container: container)
         registerSuggestionPersistence(container: container)
     }
 }
@@ -27,33 +27,33 @@ final class SearchAssembly: Assembly {
 
 extension SearchAssembly {
     
-    fileprivate func registerPageParser(container: Container) {
+    private func registerPageParser(container: Container) {
         container.register(PageParser.self, factory: { resolver in
             return PageJSONParser()
         })
     }
     
-    fileprivate func registerDisPatcher(container: Container) {
+    private func registerDisPatcher(container: Container) {
         container.register(Dispatcher.self, factory: { resolver in
             let client = APIClient.init(session: URLSession.init(configuration: .default))
             return client
         })
     }
     
-    fileprivate func registerSuggestionPersistence(container: Container) {
+    private func registerSuggestionPersistence(container: Container) {
         container.register(SuggestionPersistence.self, factory: { resolver in
             let persistence = DefaultSuggestionPersistence()
             return persistence
         })
     }
     
-    fileprivate func registerSearchFactory(container: Container) {
-        container.register(SearchFactory.self, factory: { resolver in
+    private func registerSearchService(container: Container) {
+        container.register(SearchService.self, factory: { resolver in
             let client = mainAssembler?.resolver.resolve(Dispatcher.self)!
             let parser = mainAssembler?.resolver.resolve(PageParser.self)!
             let persistence = mainAssembler?.resolver.resolve(SuggestionPersistence.self)!
-            let factory = SearchFactory(client: client!, parser: parser!, persistence: persistence!)
-            return factory
+            let searchService = SearchService(client: client!, parser: parser!, persistence: persistence!)
+            return searchService
         })
     }
     

@@ -16,7 +16,6 @@ protocol PageParser {
 
 final class PageJSONParser: PageParser {
     
-    
     /// Parse data to Page object
     ///
     /// - Parameter data: The data coming from our server response
