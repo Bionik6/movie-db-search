@@ -23,12 +23,13 @@ iOS App for searching movies
 - [RXSwift](https://github.com/ReactiveX/RxSwift) for reactive programming
 - [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet) for showing empty states
 - [Swinject](https://github.com/Swinject/Swinject) for dependency injection
-- [Nuke](https://github.com/kean/Nuke) for preheating images 
+- [Nuke](https://github.com/kean/Nuke) for images preheating
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) for dealing with JSON easily
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD) for showing HUD when loading web requests
 
 
 ## Tools Used ##
+- [Sketch 51](https://sketchapp.com) for UI Design 
 - [Xcode 9.4](https://developer.apple.com/xcode/) for development 
 - [Reveal](https://revealapp.com) for View Debugging
 - [Asset Catalog Creator](https://itunes.apple.com/us/app/asset-catalog-creator-pro/id809625456?mt=12) for icon generation

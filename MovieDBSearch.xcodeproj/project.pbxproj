@@ -50,7 +50,6 @@
 		40C8ED272111C72F00A3F2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED262111C72F00A3F2E2 /* AppDelegate.swift */; };
 		40C8ED2E2111C73200A3F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2D2111C73200A3F2E2 /* Assets.xcassets */; };
 		40C8ED312111C73200A3F2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C8ED2F2111C73200A3F2E2 /* LaunchScreen.storyboard */; };
-		40C8ED3C2111C73200A3F2E2 /* MovieDBSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */; };
 		40C8ED612111CE9C00A3F2E2 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED602111CE9C00A3F2E2 /* UIView+Constraints.swift */; };
 		40C8ED652111D8DF00A3F2E2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED642111D8DF00A3F2E2 /* HTTPMethod.swift */; };
 		40C8ED672111D8ED00A3F2E2 /* HTTPMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8ED662111D8ED00A3F2E2 /* HTTPMethodTests.swift */; };
@@ -140,7 +139,6 @@
 		40C8ED302111C73200A3F2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C8ED322111C73200A3F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C8ED372111C73200A3F2E2 /* MovieDBSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBSearchTests.swift; sourceTree = "<group>"; };
 		40C8ED3D2111C73200A3F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C8ED602111CE9C00A3F2E2 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		40C8ED642111D8DF00A3F2E2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -362,7 +360,6 @@
 				4039F5F72113C3AE00C71043 /* Mocks */,
 				4039F5E1211390CC00C71043 /* Features */,
 				40C8ED632111D8C700A3F2E2 /* Network */,
-				40C8ED3B2111C73200A3F2E2 /* MovieDBSearchTests.swift */,
 				40C8ED3D2111C73200A3F2E2 /* Info.plist */,
 			);
 			path = MovieDBSearchTests;
@@ -747,7 +744,6 @@
 				40C8ED6F2111DA9B00A3F2E2 /* RequestTests.swift in Sources */,
 				40364C4121147A1600DE5DF5 /* MainAssemblerTests.swift in Sources */,
 				4039F5F02113BD2E00C71043 /* BackendResponseTests.swift in Sources */,
-				40C8ED3C2111C73200A3F2E2 /* MovieDBSearchTests.swift in Sources */,
 				40C8ED6B2111D98600A3F2E2 /* RequestParamsTests.swift in Sources */,
 				4039F5F22113BD6700C71043 /* DispatcherTests.swift in Sources */,
 				40ECA86C211497A900164ADD /* MovieTests.swift in Sources */,
